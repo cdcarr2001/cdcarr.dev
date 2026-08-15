@@ -1,0 +1,84 @@
+#navbar {
+
+    display: grid;
+    grid-template-areas:
+        "name navlinks toggles";
+    grid-template-columns: 1fr auto auto;
+    gap: 40px;
+
+    background-color: light-dark(rgba(0, 0, 0, 0.1), rgba(255, 255, 255, .2));
+
+    #name {
+
+        grid-area: "name";
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-size: 50px;
+        font-weight: bold;
+    }
+
+    #navlinks {
+
+        grid-area: "navlinks";
+
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+        list-style-type: none;
+        width: fit-content;
+        height: fit-content;
+        padding: 0px;
+        margin: 0px;
+
+        .navlink {
+
+            font-size: 50px;
+            text-decoration: none;
+            user-select: none;
+            color: light-dark();
+
+            &.active {
+
+                color: light-dark();
+                text-decoration: underline;
+                pointer-events: none;
+            }
+        }
+    }
+
+    #navtoggles {
+
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        width: fit-content;
+        height: fit-content;
+        justify-self: right;
+        align-self: center;
+        justify-content: right;
+        align-items: center;
+
+        #dark-mode-toggle {
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+            aspect-ratio: 1 / 1;
+
+            font-size: 30px;
+            color: var(--font-color);
+            background-color: var(--button-color);
+
+            border-radius: 50%;
+
+            > * {
+
+                margin-bottom: 4px;
+            }
+        }
+    }
+}
