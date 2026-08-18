@@ -1,0 +1,35 @@
+#home {
+
+    display: grid;
+    grid-template-areas:
+        "intro ."
+        "picture information";
+    grid-template-columns: max-content 1fr;
+    grid-template-rows: auto 1fr;
+    
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 20%;
+    margin-right: 20%;
+
+    > #intro-header {
+
+        grid-area: intro;
+
+        font-size: 50px;
+        align-items: right;
+    }
+
+    > #information-section {
+
+        grid-area: information;
+        
+        hyphens: auto;
+        overflow-wrap: break-word;
+    }
+
+    > #home-picture {
+
+        grid-area: picture;
+    }
+}

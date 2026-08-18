@@ -8,6 +8,8 @@
 
     background-color: light-dark(rgba(0, 0, 0, 0.1), rgba(255, 255, 255, .2));
 
+    padding: 10px;
+
     #name {
 
         grid-area: "name";
@@ -70,11 +72,15 @@
             aspect-ratio: 1 / 1;
 
             font-size: 30px;
-            color: var(--font-color);
-            background-color: var(--button-color);
+            color: light-dark(goldenrod, antiquewhite);
+            background-color: light-dark(skyblue, black);
 
+            border-style: solid;
             border-radius: 50%;
+            border-width: 1px;
+            border-color: light-dark(gray, gray);
 
+            /* Fix issue with icon alignment */
             > * {
 
                 margin-bottom: 4px;

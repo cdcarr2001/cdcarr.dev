@@ -1,14 +1,11 @@
-import { useEffect, type ReactElement } from "react";
-import './NavBar.css'
+import type { ReactElement } from "react";
 import { NavLink } from "react-router";
 import ToggleDarkMode from "./components/ToggleDarkMode";
 
+import './NavBar.css'
+import info from '@config/info_config.json'
+
 export default function NavBar(): ReactElement {
-
-    useEffect(() => {
-
-        console.log('rendered nav bar!')
-    }, [])
 
     return(
         <nav
@@ -17,7 +14,7 @@ export default function NavBar(): ReactElement {
             <div
                 id='name'
             >
-                Connor Carr
+                {`${info.name.first} ${info.name.last}`}
             </div>
             <ul
                 id = 'navlinks'

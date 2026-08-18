@@ -1,10 +1,16 @@
 .layout {
 
+    display: grid;
+    height: 100%;
+    width: 100%;
+
     &.main {
+
+        grid-template-rows: auto 1fr auto;
 
         main {
 
-            flex-grow: 1;
+            display: flex;
         }
     }
 }

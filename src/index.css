@@ -24,7 +24,29 @@
     --button-pressed-color: light-dark();
 
     /* Set global values */
-    font-family: 'Times New Roman';
+    font-family: 'Garamond', 'Georgia';
     color: var(--font-color);
     background-color: var(--bg-color);
+}
+
+body {
+
+    /* Fill screen */
+    height: 100vh;
+    width: 100vw;
+
+    /* Remove padding and margins */
+    padding: 0px;
+    margin: 0px;
+}
+
+#root {
+
+    /* Fill parent */
+    height: 100%;
+    width: 100%;
+
+    /* No padding or margins */
+    padding: 0px;
+    margin: 0px;
 }
