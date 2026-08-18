@@ -1,0 +1,8 @@
+# Ignore node modules
+node_modules
+
+# Ignore VSCode configs
+.vscode/*
+
+# Ignore config jsons
+config/info_config.json
