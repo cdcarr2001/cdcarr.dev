@@ -6,3 +6,6 @@ node_modules
 
 # Ignore config jsons
 config/info_config.json
+
+# Ignore built site
+/dist
