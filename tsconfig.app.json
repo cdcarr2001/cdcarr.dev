@@ -29,6 +29,7 @@
       "@components/*": ["./src/components/*"],
       "@layouts/*": ["./src/layouts/*"],
       "@pages/*": ["./src/pages/*"],
+      "@config/*": ["./config/*"]
     }
   },
   "include": ["src"]

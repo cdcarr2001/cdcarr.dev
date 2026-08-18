@@ -1,0 +1,17 @@
+{
+    "name": {
+
+        "first": "First",
+        "middle": "Middle",
+        "last": "Last"
+    },
+    "contact": {
+
+        "email": "address@email.com"
+    },
+    "externalLinks": {
+
+        "linkedIn": "linkedin.com/in/ID",
+        "github": "github.com/ID"
+    }
+}
