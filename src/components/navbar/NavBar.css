@@ -46,7 +46,6 @@
 
                 color: light-dark();
                 text-decoration: underline;
-                pointer-events: none;
             }
         }
     }
