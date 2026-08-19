@@ -1,0 +1,21 @@
+{
+    "name": "Progranimate",
+    "shortDesc": "A programming tool to help students visualize the flow of a program's code.",
+    "desc": "",
+    "details": "",
+    "languages": [
+        "JavaScript",
+        "TypeScript"
+    ],
+    "libraries": [
+        "React"
+    ],
+    "frameworks": [
+    ],
+    "dateStart": "08-2025",
+    "dateEnd": "10-2026",
+    "previewImage": "",
+    "extraImages": [
+        ""
+    ]
+}
