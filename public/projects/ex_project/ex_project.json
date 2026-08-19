@@ -2,6 +2,7 @@
     "name": "example",
     "shortDesc": "short description",
     "desc": "detailed description",
+    "details": "details about the project",
     "languages": [
         "language"
     ],

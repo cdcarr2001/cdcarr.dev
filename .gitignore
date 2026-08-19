@@ -11,5 +11,5 @@
 /dist
 
 # Ignore created projects
-/data/projects/*
-!/data/projects/ex_project
+/public/projects/*
+!/public/projects/ex_project

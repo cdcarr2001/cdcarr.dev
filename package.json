@@ -5,8 +5,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "predeploy": "npm run build",
+    "predeploy": "node ./tools/generateProjectList.ts && npm run build",
     "deploy": "gh-pages -d dist",
+    "predev": "node ./tools/generateProjectList.ts",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
