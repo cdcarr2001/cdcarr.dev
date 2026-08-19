@@ -12,8 +12,8 @@
     "frameworks": [
         "framework"
     ],
-    "dateStart": "MMYYYY",
-    "dateEnd": "MMYYY",
+    "dateStart": "MM-YYYY",
+    "dateEnd": "MM-YYYY",
     "previewImage": "/path/to/image",
     "extraImages": [
         "/path/to/image"
