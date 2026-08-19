@@ -9,6 +9,7 @@ import MainLayout from '@layouts/main/MainLayout'
 import NotFound from '@pages/not_found/NotFound'
 
 import './index.css'
+import Project from '@pages/project/Project'
 
 /** Router for browser pages */
 const router = createBrowserRouter([
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
             {
                 path: "/projects",
                 element: <Projects/>
+            },
+            {
+                path: "/project/:projectName",
+                element: <Project/>
             },
             {
                 path: "/contact",

@@ -1,11 +1,15 @@
 # Ignore node modules
-node_modules
+/node_modules
 
 # Ignore VSCode configs
-.vscode/*
+/.vscode/*
 
 # Ignore config jsons
-config/info_config.json
+/config/info_config.json
 
 # Ignore built site
 /dist
+
+# Ignore created projects
+/data/projects/*
+!/data/projects/ex_project
