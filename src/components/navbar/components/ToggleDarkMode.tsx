@@ -34,9 +34,9 @@ export default function ToggleDarkMode(): ReactElement {
             id='dark-mode-toggle'
             onClick={toggleMode}
         >
-            <text>
+            <div>
                 {icon}
-            </text>
+            </div>
         </button>
     );
 }

@@ -9,21 +9,21 @@ export default function Home(): ReactElement {
         <div
             id="home"
         >
-            <text
+            <div
                 id="intro-header"
             >
                 Hello, I'm {info.name.first}!
-            </text>
+            </div>
             <div
                 id="home-picture"
             >
                 picture here!
             </div>
-            <text
+            <div
                 id="information-section"
             >
                 {SELF_INFORMATION}
-            </text>
+            </div>
         </div>
     );
 }
