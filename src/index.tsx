@@ -7,9 +7,9 @@ import Contact from '@pages/contact/Contact.tsx'
 import Projects from '@pages/projects/Projects.tsx'
 import MainLayout from '@layouts/main/MainLayout'
 import NotFound from '@pages/not_found/NotFound'
+import Project from '@pages/projects/components/Project'
 
 import './index.css'
-import Project from '@pages/project/Project'
 
 /** Router for browser pages */
 const router = createBrowserRouter([
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
                 element: <Projects/>
             },
             {
-                path: "/project/:projectName",
+                path: "/projects/:projectName",
                 element: <Project/>
             },
             {
