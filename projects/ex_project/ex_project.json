@@ -1,0 +1,21 @@
+{
+    "name": "example",
+    "shortDesc": "short description",
+    "desc": "detailed description",
+    "details": "details about the project",
+    "languages": [
+        "language"
+    ],
+    "libraries": [
+        "library"
+    ],
+    "frameworks": [
+        "framework"
+    ],
+    "dateStart": "MM-YYYY",
+    "dateEnd": "MM-YYYY",
+    "previewImage": "/path/to/image",
+    "extraImages": [
+        "/path/to/image"
+    ]
+}
