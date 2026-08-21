@@ -1,39 +1,36 @@
-import { use, type ReactElement } from "react";
-import '@layouts/layouts.css'
+import type { ReactElement } from "react";
 import ProjectPreview from "./components/ProjectPreview";
-import fetchProject from "./utilities/fetchProject";
-import fetchProjects from "./utilities/fetchProjects";
+import { PROJECT_MAP } from "./constants/ProjectMap";
 
-export const PROJECTS_DIR = '/projects';
-    
-const PROJECT_PREVIEWS = makePreviews();
-
-// TODO add a loading indicator and remove waiting for fetch to occur
-// TODO document
-
+/**
+ * Projects page
+ * @returns Projects page ReactElement
+ */
 export default function Projects(): ReactElement {
 
-    // Wait for fetch to occur before rendering
-    const projects: ReactElement[] = use(PROJECT_PREVIEWS);
+    /** Preview of all projects */
+    const projectPreviews: ReactElement[] = makePreviews();
 
     return(
         <div>
             Projects page
-            {projects}
+            {projectPreviews}
         </div>
     );
 }
 
-async function makePreviews() {
+/**
+ * Make previews for all projects
+ * @returns List of Project Preview react elements
+ */
+function makePreviews(): ReactElement[] {
 
     let elements: ReactElement[] = [];
 
-    for (let project of await fetchProjects()) {
-        
-        let json = await fetchProject(project);
+    for (let [, projectJSON] of PROJECT_MAP) {
 
-        elements.push(<ProjectPreview projectJson={json}/>);
+        elements.push(<ProjectPreview projectJson={projectJSON}/>);
     }
 
-    return(elements)
+    return(elements);
 }

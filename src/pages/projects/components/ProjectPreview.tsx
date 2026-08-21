@@ -1,5 +1,5 @@
 import type { ReactElement } from "react";
-import type { ProjectJSON } from "./Project";
+import type { ProjectJson } from "../types/ProjectJson";
 import { NavLink } from "react-router";
 
 // TODO document
@@ -11,7 +11,6 @@ export default function ProjectPreview(
     return(
         <NavLink
             to={`/projects/${props.projectJson.name}`}
-            state={{projectJson: props.projectJson}}
             className='navlink'
         >
             <div
@@ -26,5 +25,5 @@ export default function ProjectPreview(
 
 type ProjectPreviewProps = {
 
-    projectJson: ProjectJSON;
+    projectJson: ProjectJson;
 }

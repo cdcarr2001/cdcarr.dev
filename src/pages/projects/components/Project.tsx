@@ -1,40 +1,27 @@
-import { use, useRef, type ReactElement } from "react";
-import { useLocation, useParams } from "react-router";
-import fetchProject from "../utilities/fetchProject";
+import type { ReactElement } from "react";
+import { useParams } from "react-router";
+import { PROJECT_MAP } from "../constants/ProjectMap";
+import ProjectNotFound from "./ProjectNotFound";
 
 // TODO document
 
 export default function Project(): ReactElement {
 
     /** Project name */
-    const {projectName} = useParams();
-    /** Data passed from navlink */
-    var projectJson: any = useLocation().state?.projectJson;
+    const { projectName } = useParams();
+    /** Project JSON */
+    const projectJson = PROJECT_MAP.get(projectName!);
 
-    // TODO fetch data if not passed to project (ie, when using url instead of navlink)
+    if (!projectJson) {
 
-    //const datapromise = useRef(fetchProject(projectName!));
-
-    //projectJson = projectJson ? projectJson : use(datapromise.current);
+        return(<ProjectNotFound/>);
+    }
 
     return(
         <div>
             <h1>
-                {projectJson?.name}
+                {projectJson.name}
             </h1>
         </div>
     );
-}
-
-export type ProjectJSON = {
-    name: string,
-    shortDesc: string,
-    desc: string,
-    details: string,
-    languages: string[],
-    frameworks: string[],
-    dateStart: string,
-    dateEnd: string,
-    previewImage: string,
-    extraImages: string[];
 }
