@@ -5,10 +5,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "predeploy": "node ./tools/generateProjectList.ts && npm run build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "predev": "node ./tools/generateProjectList.ts",
     "dev": "vite",
+    "prebuild": "node ./tools/generateProjectList.ts",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview"
