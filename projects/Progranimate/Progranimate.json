@@ -1,0 +1,20 @@
+{
+    "name": "Progranimate",
+    "shortDesc": "Progranimate is a tool created to help students better understand the flow of code.",
+    "desc": "Progranimate is a tool created to help students better understand the flow of code through an interactive flowchart and the ability to run code from the website.",
+    "details": "details about the project",
+    "languages": [
+        "TypeScript",
+        "JavaScript"
+    ],
+    "libraries": [
+        "React"
+    ],
+    "frameworks": [
+    ],
+    "dateStart": "08-2025",
+    "dateEnd": "10-2026",
+    "previewImage": "",
+    "extraImages": [
+    ]
+}
