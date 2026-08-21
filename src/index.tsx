@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from 'react-router'
+import { HashRouter as Router, Routes, Route } from 'react-router'
 import Home from '@pages/home/Home.tsx'
 import About from '@pages/about/About.tsx'
 import Contact from '@pages/contact/Contact.tsx'
@@ -10,42 +10,21 @@ import NotFound from '@pages/not_found/NotFound'
 import Project from '@pages/projects/components/Project'
 
 import './index.css'
-
-/** Router for browser pages */
-const router = createBrowserRouter([
-    {
-        element: <MainLayout/>,
-        children: [
-            {
-                path: "/",
-                element: <Home/>
-            },
-            {
-                path: "/about",
-                element: <About/>
-            },
-            {
-                path: "/projects",
-                element: <Projects/>
-            },
-            {
-                path: "/projects/:projectName",
-                element: <Project/>
-            },
-            {
-                path: "/contact",
-                element: <Contact/>
-            }
-        ]
-    },
-    {
-        path: "/*",
-        element: <NotFound/>
-    }
-]);
+import '@layouts/layouts.css'
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
-        <RouterProvider router={router} />
+        <Router>
+            <Routes>
+                <Route element={<MainLayout/>}>
+                    <Route path="/" element={<Home/>}/>
+                    <Route path="/about" element={<About/>}/>
+                    <Route path="/projects" element={<Projects/>}/>
+                    <Route path="/projects/:projectName" element={<Project/>}/>
+                    <Route path="/contact" element={<Contact/>}/>
+                </Route>
+                <Route path="/*" element={<NotFound/>}/>
+            </Routes>
+        </Router>
     </StrictMode>,
 );
