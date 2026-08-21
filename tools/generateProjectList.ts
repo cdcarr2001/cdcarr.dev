@@ -17,6 +17,9 @@ function generateProjectList(): void {
         './public/projects/projects.json',
         JSON.stringify(items)
     );
+
+    // Log run to console
+    console.log('Generated project list');
 }
 
 generateProjectList();
