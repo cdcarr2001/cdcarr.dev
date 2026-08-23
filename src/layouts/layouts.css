@@ -6,11 +6,18 @@
 
     &.main {
 
+        --horizontal-padding: 10%;
+        --vertical-padding: 2%;
+
         grid-template-rows: auto 1fr auto;
 
         main {
 
             display: flex;
+            padding-left: var(--horizontal-padding);
+            padding-right: var(--horizontal-padding);
+            padding-top: var(--vertical-padding);
+            padding-bottom: var(--vertical-padding);
         }
     }
 }
