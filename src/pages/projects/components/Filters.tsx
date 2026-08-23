@@ -3,6 +3,7 @@ import Select, { type ActionMeta, type MultiValue } from "react-select";
 
 // TODO document
 // TODO add name search
+// TODO add dynamic options based on currently visible projects
 
 export default function Filters(): ReactElement {
 
