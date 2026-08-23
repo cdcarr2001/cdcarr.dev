@@ -1,0 +1,23 @@
+{
+    "name": "Networked Battleship",
+    "shortDesc": "A simple game of Battleship running over a network with 2+ clients and a server.",
+    "desc": "",
+    "details": "details about the project",
+    "programmingLanguages": [
+        "Java"
+    ],
+    "otherLanguages": [
+    ],
+    "libraries": [
+    ],
+    "frameworks": [
+    ],
+    "otherTechnologies": [
+        "Java Sockets"
+    ],
+    "dateStart": "12-2024",
+    "dateEnd": "12-2024",
+    "previewImage": "",
+    "extraImages": [
+    ]
+}

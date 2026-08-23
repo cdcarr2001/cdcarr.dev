@@ -18,7 +18,8 @@
     ],
     "otherTechnologies": [
         "Docker",
-        "MongoDB"
+        "MongoDB",
+        "Vite"
     ],
     "dateStart": "08-2025",
     "dateEnd": "10-2026",

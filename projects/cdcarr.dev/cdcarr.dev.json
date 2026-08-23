@@ -1,0 +1,27 @@
+{
+    "name": "cdcarr.dev",
+    "shortDesc": "cdcarr.dev is the site you are on right now, created to showcase information about myself and my work.",
+    "desc": "",
+    "details": "",
+    "programmingLanguages": [
+        "TypeScript",
+        "JavaScript"
+    ],
+    "otherLanguages": [
+        "HTML",
+        "CSS"
+    ],
+    "libraries": [
+        "React"
+    ],
+    "frameworks": [
+    ],
+    "otherTechnologies": [
+        "Vite"
+    ],
+    "dateStart": "08-2026",
+    "dateEnd": "",
+    "previewImage": "",
+    "extraImages": [
+    ]
+}
