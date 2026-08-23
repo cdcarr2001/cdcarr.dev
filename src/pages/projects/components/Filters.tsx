@@ -3,7 +3,6 @@ import Select, { type ActionMeta, type MultiValue } from "react-select";
 
 // TODO document
 // TODO add name search
-// TODO add dynamic options based on currently visible projects
 
 export default function Filters(): ReactElement {
 
@@ -12,7 +11,7 @@ export default function Filters(): ReactElement {
     /** Language filtering options */
     const [ groupOptions, setGroupOptions ] = useState<GroupOptions[]>([]);
 
-    const formatGroupLabel = (group: GroupOptions) => {
+    const formatGroupLabel = (group: GroupOptions): ReactElement => {
 
         return(
             <div
@@ -21,18 +20,10 @@ export default function Filters(): ReactElement {
                 <span>{group.label}</span>
                 <span>{group.options.length}</span>
             </div>
-        )
+        );
     }
 
-    const filterPrograms = (options: MultiValue<Option>, action: ActionMeta<Option>) => {
-
-        // TODO add filter
-    }
-
-    useEffect(() => {
-
-        // Set project containers
-        projectPreviews.current = document.getElementById('project-containers');
+    const filterPrograms = (options: MultiValue<Option>, action: ActionMeta<Option>): void => {
 
         // If project containers has not been set
         if (!projectPreviews.current) {
@@ -44,6 +35,31 @@ export default function Filters(): ReactElement {
 
         /** All projects with a project preview */
         let projects = projectPreviews.current.getElementsByClassName('project-preview-container');
+
+        // Filter elements
+        filterElements(Array.from(projects) as HTMLElement[], options, action);
+
+        // Refresh filters
+        getFilters();
+    }
+
+    const getFilters = () => {
+
+        // If project containers has not been set
+        if (!projectPreviews.current) {
+
+            // Log the error and return, as the page is functional even without a search
+            console.error("Could not find project containers!");
+            return;
+        }
+
+        /** All elements that are project previews */
+        let elements = projectPreviews.current.getElementsByClassName('project-preview-container');
+        /** Project previews in an array format */
+        let projects = Array.from(elements) as HTMLElement[];
+
+        // Remove hidden elements from projects array
+        projects = [...projects].filter((project) => !project.classList.contains("hidden"));
 
         /** All languages seen */
         let languages: string[] = [];
@@ -143,6 +159,22 @@ export default function Filters(): ReactElement {
             {label: "Frameworks", options: frameworkOptions},
             {label: "Technologies", options: technologyOptions}
         ]);
+    }
+
+    useEffect(() => {
+
+        // Set project containers
+        projectPreviews.current = document.getElementById('project-containers');
+
+        // If project containers has not been set
+        if (!projectPreviews.current) {
+
+            // Log the error and return, as the page is functional even without a search
+            console.error("Could not find project containers!");
+            return;
+        }
+
+        getFilters();
     }, []);
 
     return(
@@ -152,6 +184,8 @@ export default function Filters(): ReactElement {
             options={groupOptions}
             onChange={filterPrograms}
             formatGroupLabel={formatGroupLabel}
+            closeMenuOnSelect={false}
+            blurInputOnSelect={false}
             placeholder='Search for projects...'
         />
     );
@@ -175,4 +209,90 @@ type GroupOptions = {
     readonly label: string,
     /** Options of the group */
     readonly options: readonly Option[];
+}
+
+function filterElements(
+    elements: HTMLElement[], options: MultiValue<Option>, action: ActionMeta<Option>
+): void {
+
+    let filtered: HTMLElement[];
+
+    switch (action.action) {
+
+        case "select-option":
+            
+            // Apply hidden to any new elements that do not meet the options
+            filtered = elements.filter((element) => !element.classList.contains('hidden'));
+            for (let element of filtered) {
+
+                filterElement(element, options,
+                             (element: HTMLElement) => (element.classList.add('hidden')));
+            }
+            break;
+        case "deselect-option":
+            
+            // Remove hidden from any elements that now meet the options
+            filtered = elements.filter((element) => element.classList.contains('hidden'));
+            for (let element of filtered) {
+
+                filterElement(element, options,
+                             (element: HTMLElement) => (element.classList.remove('hidden')));
+            }
+            break;
+        case "clear":
+            
+            // Remove hidden from any hidden elements
+            filtered = elements.filter((element) => element.classList.contains('hidden'));
+            for (let element of filtered) {
+
+                element.classList.remove('hidden');
+            }
+            break;
+        case "remove-value":
+        case "pop-value":
+        case "create-option":
+        default:
+
+            // Just return for now
+            return;
+    }
+}
+
+function filterElement(
+    element: HTMLElement, options: MultiValue<Option>, action: (element: HTMLElement) => void
+) {
+
+    for (let option of options) {
+
+        switch (option.type) {
+
+            case "language":
+
+                if (!element.dataset.languages?.split(',')?.includes(option.value)) {
+                    action(element);
+                    return;
+                }
+                break;
+            case "library":
+                if (!element.dataset.libraries?.split(',')?.includes(option.value)) {
+                    action(element);
+                    return;
+                }
+                break;
+            case "framework":
+                if (!element.dataset.framework?.split(',')?.includes(option.value)) {
+                    action(element);
+                    return;
+                }
+                break;
+            case "technology":
+                if (!element.dataset.technologies?.split(',')?.includes(option.value)) {
+                    action(element);
+                    return;
+                }
+                break;
+        }
+    }
+
+    return(true);
 }
