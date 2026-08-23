@@ -3,6 +3,7 @@ import Select, { type ActionMeta, type MultiValue } from "react-select";
 
 // TODO document
 // TODO add name search
+// TODO define proper CSS stype so text is visible in both light and dark mode
 
 export default function Filters(): ReactElement {
 
@@ -225,18 +226,16 @@ function filterElements(
             filtered = elements.filter((element) => !element.classList.contains('hidden'));
             for (let element of filtered) {
 
-                filterElement(element, options,
-                             (element: HTMLElement) => (element.classList.add('hidden')));
+                filterElement(element, options);
             }
             break;
-        case "deselect-option":
+        case "remove-value":
             
             // Remove hidden from any elements that now meet the options
             filtered = elements.filter((element) => element.classList.contains('hidden'));
             for (let element of filtered) {
 
-                filterElement(element, options,
-                             (element: HTMLElement) => (element.classList.remove('hidden')));
+                filterElement(element, options);
             }
             break;
         case "clear":
@@ -248,7 +247,7 @@ function filterElements(
                 element.classList.remove('hidden');
             }
             break;
-        case "remove-value":
+        case "deselect-option":
         case "pop-value":
         case "create-option":
         default:
@@ -259,8 +258,7 @@ function filterElements(
 }
 
 function filterElement(
-    element: HTMLElement, options: MultiValue<Option>, action: (element: HTMLElement) => void
-) {
+    element: HTMLElement, options: MultiValue<Option>) {
 
     for (let option of options) {
 
@@ -269,30 +267,30 @@ function filterElement(
             case "language":
 
                 if (!element.dataset.languages?.split(',')?.includes(option.value)) {
-                    action(element);
+                    element.classList.add('hidden')
                     return;
                 }
                 break;
             case "library":
                 if (!element.dataset.libraries?.split(',')?.includes(option.value)) {
-                    action(element);
+                    element.classList.add('hidden')
                     return;
                 }
                 break;
             case "framework":
                 if (!element.dataset.framework?.split(',')?.includes(option.value)) {
-                    action(element);
+                    element.classList.add('hidden')
                     return;
                 }
                 break;
             case "technology":
                 if (!element.dataset.technologies?.split(',')?.includes(option.value)) {
-                    action(element);
+                    element.classList.add('hidden')
                     return;
                 }
                 break;
         }
     }
-
-    return(true);
+        
+    element.classList.remove('hidden')
 }
