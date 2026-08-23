@@ -1,17 +1,25 @@
 #projects {
 
+    width: 100%;
+
     h1 {
 
         margin: 0px;
     }
 
-    .project-preview-container {
+    #project-containers {
 
         display: grid;
+        grid-template-columns: repeat(3, 1fr);
 
-        &.hidden {
+        .project-preview-container {
 
-            display: none;
+            display: grid;
+
+            &.hidden {
+
+                display: none;
+            }
         }
     }
 
