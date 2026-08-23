@@ -5,6 +5,8 @@ import { PROJECT_MAP } from "./constants/ProjectMap";
 
 import './Projects.css';
 
+// TODO make look cleaner
+
 /**
  * Projects page
  * @returns Projects page ReactElement

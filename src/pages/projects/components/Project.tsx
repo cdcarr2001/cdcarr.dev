@@ -5,6 +5,8 @@ import ProjectNotFound from "./ProjectNotFound";
 
 // TODO document
 // TODO fix missing unique key error
+// TODO add information about project
+// TODO add more CSS for the page
 
 export default function Project(): ReactElement {
 
