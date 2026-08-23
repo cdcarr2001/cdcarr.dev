@@ -1,7 +1,9 @@
 import type { ReactElement } from "react";
 
-import './Home.css'
-import info from '@config/info_config.json'
+import './Home.css';
+import info from '@config/info_config.json';
+
+// TODO document
 
 export default function Home(): ReactElement {
 
@@ -22,12 +24,8 @@ export default function Home(): ReactElement {
             <div
                 id="information-section"
             >
-                {SELF_INFORMATION}
+                {info.shortDesc}
             </div>
         </div>
     );
 }
-
-const SELF_INFORMATION = 
-    "I am a well rounded developer with experience with a variety of frameworks and languages. " + 
-    "Second linehajkfjksdhfjkhasdfljhasdljkfhjkashdfkjhasdfkjsshdgfjkhsdkjfghskdjhfgkjhhaskjdfhaskljdhfkjashdfkjahsfdjkhasdjfhlakshfdjkashdfkjhsadfkjh"
