@@ -3,7 +3,10 @@
     "shortDesc": "short description",
     "desc": "detailed description",
     "details": "details about the project",
-    "languages": [
+    "programminglanguages": [
+        "language"
+    ],
+    "otherLanguages": [
         "language"
     ],
     "libraries": [
@@ -11,6 +14,9 @@
     ],
     "frameworks": [
         "framework"
+    ],
+    "otherTechnologies": [
+        "other technologies"
     ],
     "dateStart": "MM-YYYY",
     "dateEnd": "MM-YYYY",

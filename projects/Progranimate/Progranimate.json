@@ -3,14 +3,22 @@
     "shortDesc": "Progranimate is a tool created to help students better understand the flow of code.",
     "desc": "Progranimate is a tool created to help students better understand the flow of code through an interactive flowchart and the ability to run code from the website.",
     "details": "details about the project",
-    "languages": [
+    "programmingLanguages": [
         "TypeScript",
         "JavaScript"
+    ],
+    "otherLanguages": [
+        "HTML",
+        "CSS"
     ],
     "libraries": [
         "React"
     ],
     "frameworks": [
+    ],
+    "otherTechnologies": [
+        "Docker",
+        "MongoDB"
     ],
     "dateStart": "08-2025",
     "dateEnd": "10-2026",
