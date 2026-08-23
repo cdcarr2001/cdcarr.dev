@@ -4,6 +4,7 @@ import { NavLink } from "react-router";
 
 // TODO document
 // TODO respect line character limit
+// TODO improve visuals
 
 export default function ProjectPreview(
     props: ProjectPreviewProps
