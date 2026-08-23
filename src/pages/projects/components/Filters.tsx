@@ -110,7 +110,7 @@ export default function Filters(): ReactElement {
             // Add all new technologies to the filter list
             for (let technology of pTechnologies ? pTechnologies : []) {
 
-                if (technologies && !technologies.includes(technology)) {
+                if (technology && !technologies.includes(technology)) {
 
                     technologies.push(technology);
                 }
