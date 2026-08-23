@@ -1,6 +1,9 @@
 import type { ReactElement } from "react";
+import Filters from "./components/Filters";
 import ProjectPreview from "./components/ProjectPreview";
 import { PROJECT_MAP } from "./constants/ProjectMap";
+
+import './Projects.css';
 
 /**
  * Projects page
@@ -12,9 +15,16 @@ export default function Projects(): ReactElement {
     const projectPreviews: ReactElement[] = makePreviews();
 
     return(
-        <div>
-            Projects page
-            {projectPreviews}
+        <div
+            id='projects'
+        >
+            <h1>Projects</h1>
+            <Filters/>
+            <div
+                id='project-containers'
+            >
+                {projectPreviews}
+            </div>
         </div>
     );
 }
