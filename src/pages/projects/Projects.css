@@ -11,10 +11,47 @@
 
         display: grid;
         grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
 
         .project-preview-container {
 
             display: grid;
+            grid-template-rows: auto, 1fr, 1fr;
+            min-width: 100%;
+            min-height: fit-content;
+            background-color: light-dark(lightgrey, grey);
+            border-radius: 15px;
+
+            .project-name {
+
+                width: 100%;
+                text-align: center;
+            }
+
+            .project-image {
+
+                border-radius: 15px 15px 0px 0px;
+            }
+
+            .project-info {
+
+                margin: 10px;
+
+                .project-info-bubble {
+
+                    --bubble-padding: 4px;
+                    --bubble-margin: 4px;
+
+                    width: fit-content;
+                    border-radius: 5px;
+                    background-color: light-dark(lightblue, darkblue);
+                    color: light-dark(black, white);
+                    text-decoration: none;
+                    padding-left: var(--bubble-padding);
+                    padding-right: var(--bubble-padding);
+                    margin-right: var(--bubble-margin);
+                }
+            }
 
             &.hidden {
 

@@ -36,7 +36,22 @@ export default function ProjectPreview(
                 <div
                     className='project-preview'
                 >
-                    {props.projectJson.name}
+                    <div
+                        className='project-image'
+                    >
+                    </div>
+                    <div
+                        className='project-name'
+                    >
+                        {props.projectJson.name}
+                    </div>
+                    <div
+                        className='project-info'
+                    >
+                        {languages.map(
+                            language => <span className='project-info-bubble'>{language}</span>
+                        )}
+                    </div>
                 </div>
             </NavLink>
         </div>  
