@@ -77,6 +77,9 @@ a {
 
     #project-filters {
 
+        grid-area: search;
+        width: calc((100% / 3) - 8px);
+
         .group-label {
 
             display: flex;
