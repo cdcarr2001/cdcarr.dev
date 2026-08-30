@@ -16,11 +16,10 @@ export default function Home(): ReactElement {
             >
                 Hello, I'm {info.name.first}!
             </div>
-            <div
+            <img
                 id="home-picture"
-            >
-                picture here!
-            </div>
+                src='/home/home_self_picture.png'
+            />
             <div
                 id="information-section"
             >
