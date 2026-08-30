@@ -20,8 +20,12 @@ export default function Projects(): ReactElement {
         <div
             id='projects'
         >
-            <h1>Projects</h1>
-            <Filters/>
+            <div
+                className="header"
+            >
+                <h1>Projects</h1>
+                <Filters/>
+            </div>
             <div
                 id='project-containers'
             >
