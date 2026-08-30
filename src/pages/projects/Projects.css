@@ -8,7 +8,7 @@ a {
     width: 100%;
 
     h1 {
-
+        
         margin: 0px;
     }
 
@@ -24,32 +24,84 @@ a {
 
     #project-containers {
 
+        --border-colors: light-dark(black, white);
+        
+        width: 100%;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 10px;
 
         .project-preview-container {
 
-            display: grid;
-            grid-template-rows: auto, 1fr, 1fr;
-            min-width: 100%;
-            min-height: fit-content;
-            background-color: light-dark(lightgrey, grey);
-            border-radius: 15px;
+            position: relative;
+            width: 1fr;
+            aspect-ratio: 16/9;
+
+            .project-preview {
+
+                display: grid;
+                grid-template-rows: 1fr auto auto;
+                background-color: light-dark(lightgrey, rgb(49, 49, 49));
+                overflow: visible;
+                width: 100%;
+                height: 100%;
+                aspect-ratio: 16/9;
+
+                border: var(--border-colors);
+                border-radius: 15px;
+                border-style: solid;
+                border-width: 1px;
+
+                &:hover {
+
+                    position: absolute;
+                    grid-template-rows: 1fr auto auto;
+                    height: fit-content;
+
+                    z-index: 1;
+
+                    .project-info {
+
+                        display: flex;
+                    }
+
+                    .project-image {
+
+                        height: fit-content;
+                        overflow: clip;
+                    }
+                }
+            }
 
             .project-name {
 
                 width: 100%;
                 text-align: center;
+
+                color: light-dark(black, white);
+                font-size: xx-large;
+                font-weight: bold;
+
+                border-top-color: var(--border-colors);
+                border-top-style: solid;
+                border-top-width: 1px;
             }
 
             .project-image {
 
+                width: 100%;
+                height: 100%;
                 border-radius: 15px 15px 0px 0px;
+                overflow: hidden;
+                object-fit: cover;
+                object-position: top;
             }
 
             .project-info {
-
+                
+                display: none;
+                flex-direction: column;
+                gap: 2px;
                 margin: 10px;
 
                 .project-info-bubble {
@@ -59,18 +111,51 @@ a {
 
                     width: fit-content;
                     border-radius: 5px;
-                    background-color: light-dark(lightblue, darkblue);
-                    color: light-dark(black, white);
                     text-decoration: none;
                     padding-left: var(--bubble-padding);
                     padding-right: var(--bubble-padding);
                     margin-right: var(--bubble-margin);
+
+                    &.language {
+
+                        background-color: light-dark(#fdfa72, darkblue);
+                        color: light-dark(black, white);
+                    }
+
+                    &.library {
+
+                        background-color: light-dark(#F599C6, darkblue);
+                        color: light-dark(black, white);
+                    }
+
+                    &.framework {
+
+                        background-color: light-dark(#7DCCAD, darkblue);
+                        color: light-dark(black, white);
+                    }
+
+                    &.technology {
+
+                        background-color: light-dark(lightblue, darkblue);
+                        color: light-dark(black, white);
+                    }
                 }
             }
 
             &.hidden {
 
                 display: none;
+            }
+        }
+
+        /* TODO replace with JS detection of the element change going off screen */
+        /* Set last row of elements to pop up rather than down */
+        > :nth-child(3n+1):nth-last-child(-n+3),
+        > :nth-child(3n+1):nth-last-child(-n+3) ~ * {
+        
+            .project-preview:hover {
+
+                bottom: -2px;
             }
         }
     }

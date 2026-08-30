@@ -3,7 +3,6 @@ import type { ProjectJson } from "../types/ProjectJson";
 import { NavLink } from "react-router";
 
 // TODO document
-// TODO respect line character limit
 // TODO improve visuals
 // TODO add sorting feature
 
@@ -35,24 +34,57 @@ export default function ProjectPreview(
                 className='navlink'
             >
                 <div
-                    className='project-preview'
+                    className='project-preview-container'
                 >
-                    <div
-                        className='project-image'
+                    {<div
+                        className='project-preview'
                     >
-                    </div>
-                    <div
-                        className='project-name'
-                    >
-                        {props.projectJson.name}
-                    </div>
-                    <div
-                        className='project-info'
-                    >
-                        {languages.map(
-                            language => <span className='project-info-bubble'>{language}</span>
-                        )}
-                    </div>
+                        <img
+                            className='project-image'
+                            src={props.projectJson.previewImage ? props.projectJson.previewImage : undefined}
+                        />
+                        <span
+                            className='project-name'
+                        >
+                            {props.projectJson.name}
+                        </span>
+                        <div
+                            className='project-info'
+                        >
+                            {
+                                languages.length > 0 &&
+                                <div>
+                                    {languages.map(
+                                        language => <span className='project-info-bubble language'>{language}</span>
+                                    )}
+                                </div>
+                            }
+                            {
+                                libraries.length > 0 &&
+                                <div>
+                                    {libraries.map(
+                                        library => <span className='project-info-bubble library'>{library}</span>
+                                    )}
+                                </div>
+                            }
+                            {
+                                frameworks.length > 0 &&
+                                <div>
+                                    {frameworks.map(
+                                        framework => <span className='project-info-bubble framework'>{framework}</span>
+                                    )}
+                                </div>
+                            }
+                            {
+                                technologies.length > 0 &&
+                                <div>
+                                    {technologies.map(
+                                        technology => <span className='project-info-bubble technology'>{technology}</span>
+                                    )}
+                                </div>
+                            }
+                        </div>
+                    </div>}
                 </div>
             </NavLink>
         </div>  
