@@ -1,3 +1,8 @@
+/* Remove underline from all links under Projects page unless otherwise applied */
+a {
+    text-decoration: none;
+}
+
 #projects {
 
     width: 100%;
