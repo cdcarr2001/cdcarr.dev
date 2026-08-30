@@ -34,7 +34,14 @@ async function fetchProjects(): Promise<Map<string, ProjectJson>> {
                 .then((response) => {
                     if (response.ok) {
 
-                        return(response.json());
+                        if (response.headers.get("content-type") == 'application/json') {
+
+                            return(response.json());
+                        }
+                        else {
+
+                            return(null);
+                        }
                     }
                     else {
 
