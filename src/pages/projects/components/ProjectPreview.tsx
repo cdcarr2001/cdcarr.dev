@@ -34,57 +34,53 @@ export default function ProjectPreview(
                 className='navlink'
             >
                 <div
-                    className='project-preview-container'
+                    className='project-preview'
                 >
-                    {<div
-                        className='project-preview'
+                    <img
+                        className='project-image'
+                        src={props.projectJson.previewImage ? props.projectJson.previewImage : undefined}
+                    />
+                    <span
+                        className='project-name'
                     >
-                        <img
-                            className='project-image'
-                            src={props.projectJson.previewImage ? props.projectJson.previewImage : undefined}
-                        />
-                        <span
-                            className='project-name'
-                        >
-                            {props.projectJson.name}
-                        </span>
-                        <div
-                            className='project-info'
-                        >
-                            {
-                                languages.length > 0 &&
-                                <div>
-                                    {languages.map(
-                                        language => <span className='project-info-bubble language'>{language}</span>
-                                    )}
-                                </div>
-                            }
-                            {
-                                libraries.length > 0 &&
-                                <div>
-                                    {libraries.map(
-                                        library => <span className='project-info-bubble library'>{library}</span>
-                                    )}
-                                </div>
-                            }
-                            {
-                                frameworks.length > 0 &&
-                                <div>
-                                    {frameworks.map(
-                                        framework => <span className='project-info-bubble framework'>{framework}</span>
-                                    )}
-                                </div>
-                            }
-                            {
-                                technologies.length > 0 &&
-                                <div>
-                                    {technologies.map(
-                                        technology => <span className='project-info-bubble technology'>{technology}</span>
-                                    )}
-                                </div>
-                            }
-                        </div>
-                    </div>}
+                        {props.projectJson.name}
+                    </span>
+                    <div
+                        className='project-info'
+                    >
+                        {
+                            languages.length > 0 &&
+                            <div>
+                                {languages.map(
+                                    language => <span className='project-info-bubble language'>{language}</span>
+                                )}
+                            </div>
+                        }
+                        {
+                            libraries.length > 0 &&
+                            <div>
+                                {libraries.map(
+                                    library => <span className='project-info-bubble library'>{library}</span>
+                                )}
+                            </div>
+                        }
+                        {
+                            frameworks.length > 0 &&
+                            <div>
+                                {frameworks.map(
+                                    framework => <span className='project-info-bubble framework'>{framework}</span>
+                                )}
+                            </div>
+                        }
+                        {
+                            technologies.length > 0 &&
+                            <div>
+                                {technologies.map(
+                                    technology => <span className='project-info-bubble technology'>{technology}</span>
+                                )}
+                            </div>
+                        }
+                    </div>
                 </div>
             </NavLink>
         </div>  
