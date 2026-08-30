@@ -4,6 +4,7 @@ import Select, { type ActionMeta, type MultiValue } from "react-select";
 // TODO document
 // TODO add name search
 // TODO define proper CSS stype so text is visible in both light and dark mode
+// TODO add filters to URL to allow for saving while going back and forth
 
 export default function Filters(): ReactElement {
 
