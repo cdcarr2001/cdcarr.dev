@@ -5,6 +5,7 @@ import { NavLink } from "react-router";
 // TODO document
 // TODO improve visuals
 // TODO add sorting feature
+// TODO add short description to preview when hovered over
 
 export default function ProjectPreview(
     props: ProjectPreviewProps

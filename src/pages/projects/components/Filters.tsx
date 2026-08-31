@@ -5,6 +5,7 @@ import Select, { type ActionMeta, type MultiValue } from "react-select";
 // TODO add name search
 // TODO define proper CSS stype so text is visible in both light and dark mode
 // TODO add filters to URL to allow for saving while going back and forth
+// TODO add async options https://react-select.com/async
 
 export default function Filters(): ReactElement {
 
@@ -188,7 +189,7 @@ export default function Filters(): ReactElement {
             formatGroupLabel={formatGroupLabel}
             closeMenuOnSelect={false}
             blurInputOnSelect={false}
-            placeholder='Search for projects...'
+            placeholder='Search/Filter projects...'
         />
     );
 }
