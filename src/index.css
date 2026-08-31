@@ -50,3 +50,9 @@ html, body {
     padding: 0px;
     margin: 0px;
 }
+
+/* Make everything respect border boxes */
+* {
+
+    box-sizing: border-box;
+}
