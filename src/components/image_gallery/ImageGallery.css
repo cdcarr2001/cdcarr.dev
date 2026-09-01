@@ -1,5 +1,6 @@
 .image-gallery {
 
+    position: relative;
     justify-content: left;
     padding: 10px;
     width: 100%;
@@ -15,12 +16,19 @@
     border-left-width: 20px;
     border-right-width: 20px;
 
-    .image-container {
+    .gallery-images {
 
         position: relative;
         height: 100%;
-        width: auto;
-        max-width: 100%;
+        width: 100%;
+    }
+
+    .image-container {
+
+        position: absolute;
+        height: 100%;
+        width: fit-content;
+        place-content: center;
     }
 
     .arrow-container {
@@ -30,11 +38,101 @@
 
     .image-thumbnail {
 
-        position: absolute;
         height: auto;
         max-height: 100%;
         width: auto;
         max-width: 100%;
         object-fit: scale-down;
+        cursor: pointer;
+    }
+
+    .gallery-popup {
+
+        --arrow-background: light-dark(white, black);
+        --arrow-foreground: light-dark(black, white);
+
+        position: fixed;
+        display: grid;
+        grid-template-areas: 
+            "la images ra"
+            "la thumbnails ra";
+        grid-template-columns: auto 1fr auto;
+        grid-template-rows: 1fr auto;
+        height: 100vh;
+        width: 100vw;
+        top: 0px;
+        left: 0px;
+        padding-top: 10vh;
+        padding-bottom: 10vh;
+        padding-left: 10vw;
+        padding-right: 10vw;
+
+        background-color: light-dark(rgba(0, 0, 0, 0.245), rgba(255, 255, 255, 0.245));
+
+        .arrow {
+
+            height: 100%;
+            width: fit-content;
+
+            background-color: var(--arrow-background);
+            color: var(--arrow-foreground);
+
+            &.left {
+
+                grid-area: la;
+            }
+
+            &.right {
+
+                grid-area: ra;
+            }
+        }
+
+        .gallery-images {
+
+            grid-area: images;
+            padding-top: 5vh;
+            padding-bottom: 5vh;
+            padding-left: 5vw;
+            padding-right: 5vw;
+
+            justify-content: center;
+            align-items: center;
+
+            background-color: light-dark(lightgrey, rgb(49, 49, 49));
+
+            .popup-image-container {
+
+                position: relative;
+                width: 100%;
+                height: 100%;
+
+                .image-container {
+
+                    inset: 0;
+                    place-self: center;
+                }
+            }
+        }
+
+        .popup-thumbnails {
+
+            grid-area: thumbnails;
+            height: 20vh;
+            width: 100%;
+            bottom: 0;
+
+            background-color: light-dark(grey, rgb(77, 77, 77));
+
+            &:not(:hover) {
+
+                position: absolute;
+                background: none;
+
+                * {
+                    visibility: hidden;
+                }
+            }
+        }
     }
 }
