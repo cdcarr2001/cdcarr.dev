@@ -58,8 +58,6 @@ function getColorTheme(): string {
     // Otherwise get and return the preferred color theme
     else {
 
-        return(window.matchMedia('(prefers-color-theme: dark').matches ? 'dark' : 'light');
+        return(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     }
-
-
 }
