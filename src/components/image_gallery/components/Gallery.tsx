@@ -1,8 +1,6 @@
 import { useRef, useState, type ActionDispatch, type MouseEvent, type ReactElement } from "react";
 
 // TODO document
-// TODO finish visuals
-// TODO Implement buttons, click and drag, and/or scrolling for moving images in gallery
 // TODO maybe sync with popup button presses?
 
 export default function Gallery(

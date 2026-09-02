@@ -1,7 +1,6 @@
 import { useEffect, useReducer, useState, type ActionDispatch, type MouseEvent, type ReactElement } from "react";
 
 // TODO document
-// TODO add image thumbnails to popup tray
 // TODO add exit button maybe?
 
 export default function GalleryPopup(
