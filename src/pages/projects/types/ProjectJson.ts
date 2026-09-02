@@ -6,8 +6,11 @@ export type ProjectJson = {
     shortDesc: string,
     desc: string,
     details: string,
-    goingIn: string[],
-    comingOut: string[],
+    knowledge: {
+        item: string,
+        before: string,
+        after: string
+    }[],
     programmingLanguages: string[],
     otherLanguages: string[],
     libraries: string[],
