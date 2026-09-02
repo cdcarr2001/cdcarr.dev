@@ -45,7 +45,7 @@ export default function Project(): ReactElement {
                     {projectJson.name}
                 </h1>
                 <h1>
-                    {startDate} - {endDate}
+                    {startDate == endDate ? startDate : `${startDate} - ${endDate}`}
                 </h1>
             </div>
             <div
