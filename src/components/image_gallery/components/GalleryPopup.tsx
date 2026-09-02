@@ -1,109 +1,113 @@
-import { useReducer, type MouseEvent, type ReactElement } from "react";
+import { useReducer, type ActionDispatch, type MouseEvent, type ReactElement } from "react";
+
+// TODO document
+// TODO add image thumbnails to popup tray
 
 export default function GalleryPopup(
     props: GalleryPopupProps
 ): ReactElement {
 
-    const updateIndex = (state: number, action: 'right' | 'left'): number  => {
+    const [ imageIndex, changeIndex ] = useReducer(
+        (prev: number, direction: 'right' | 'left') => {
 
-        switch (action) {
-            
-            case "right":
+            switch (direction) {
 
-                if (state == props.images.length - 1) {
+                case "right": {
 
-                    return(0);
+                    if (prev == props.children.length - 1) {
+
+                        return(0);
+                    }
+                    else {
+
+                        return(prev + 1);
+                    }
                 }
-                else {
+                case "left": {
 
-                    return(++state);
+                    if (prev == 0) {
+
+                        return(props.children.length - 1);
+                    }
+                    else {
+
+                        return(prev - 1);
+                    }
                 }
-            case "left":
+            }
+        },
+        props.popUpIndex
+    );
 
-                if (state == 0) {
-
-                    return(props.images.length - 1);
-                }
-                else {
-
-                    return(--state);
-                }
-        }
-    }
-
-    const [ currentImageIndex, changeImage ] = useReducer(updateIndex, props.popupIndex ? props.popupIndex : 0);
-
-    const onBackgroundClickHandler = (event: MouseEvent): void => {
+    const onClickHandler = (event: MouseEvent): void => {
 
         event.preventDefault();
+        event.stopPropagation();
 
         props.closePopup();
     }
 
-    const onLeftButtonClickHandler = (event: MouseEvent): void => {
+    const onClickContainerHandler = (event: MouseEvent): void => {
 
-        event.stopPropagation();
-
-        changeImage('left');
-    }
-
-    const onrightButtonClickHandler = (event: MouseEvent): void => {
-
-        event.stopPropagation();
-    
-        changeImage('right');
-    }
-
-    const onGalleryClickHandler = (event: MouseEvent): void => {
-
+        event.preventDefault();
         event.stopPropagation();
     }
 
-    const onThumbnailClickHandler = (event: MouseEvent): void => {
+    const onLeftButton = (event: MouseEvent): void => {
 
+        event.preventDefault();
         event.stopPropagation();
+
+        changeIndex('left');
+    }
+
+    const onRightButton = (event: MouseEvent): void => {
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        changeIndex('right');
     }
 
     return(
         <div
-            className='gallery-popup'
-            onClick={onBackgroundClickHandler}
+            className='image-gallery-popup'
+            onClick={onClickHandler}
         >
-            <button
-                className='arrow left'
-                onClick={onLeftButtonClickHandler}
-            >
-                {"<"}
-            </button>
-            <button
-                className='arrow right'
-                onClick={onrightButtonClickHandler}
-            >
-                {">"}
-            </button>
             <div
-                className='gallery-images'
-                onClick={onGalleryClickHandler}
+                className='popup-container'
+                onClick={onClickContainerHandler}
             >
                 <div
                     className='popup-image-container'
                 >
-                    {props.popupIndex != null && props.images[currentImageIndex]}
+                    {props.children[imageIndex]}
                 </div>
-            </div>
-            <div
-                className='popup-thumbnails'
-                onClick={onThumbnailClickHandler}
-            >
-                <span>A</span>
+                <div
+                    className='thumbnails'
+                >
+                    <span>Thumbnails here!</span>
+                </div>
+                <button
+                    className='arrow left'
+                    onClick={onLeftButton}
+                >
+                    <span>{"<"}</span>
+                </button>
+                <button
+                    className='arrow right'
+                    onClick={onRightButton}
+                >
+                    <span>{">"}</span>
+                </button>
             </div>
         </div>
     );
 }
 
 type GalleryPopupProps = {
-
-    images: ReactElement[],
-    popupIndex: number | null,
-    closePopup: () => void;
+    
+    children: ReactElement[],
+    popUpIndex: number,
+    closePopup: ActionDispatch<[]>
 }

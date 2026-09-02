@@ -2,7 +2,7 @@ import type { ReactElement } from "react";
 import { useParams } from "react-router";
 import { PROJECT_MAP } from "../constants/ProjectMap";
 import ProjectNotFound from "./ProjectNotFound";
-import ImageGallery from "../../../components/image_gallery/ImageGallery";
+import ImageGallery from "@components/image_gallery/ImageGallery";
 
 // TODO document
 // TODO fix missing unique key error

@@ -1,72 +1,76 @@
-import { createContext, useState, type MouseEvent, type ReactElement } from "react";
-import Image, { type ClickedImageEvent } from "./components/Image";
+import { useCallback, useReducer, useState, type ReactElement } from "react";
+import Gallery from "./components/Gallery";
 import GalleryPopup from "./components/GalleryPopup";
+import GalleryImage from "./components/GalleryImage";
 
 import './ImageGallery.css';
 
 // TODO document
-// TODO probably redo all the CSS to try and avoid using position absolute
-
-export const ClickedImageContext = createContext<string | null>(null);
 
 export default function ImageGallery(
     props: ImageGalleryProps
 ): ReactElement {
 
-    const [ imageThumbnails ] = useState<ReactElement[]>(generateImageElementsArray(props.imagePaths));
-    const [ isPoppedUp, setIsPoppedUp ] = useState<boolean>(false);
-    const [ popupIndex, setPopupIndex ] = useState<number | null>(null);
+    const [ images ] = useState<ReactElement[]>(createImagesFromSource(props.imagePaths));
+    const [ popUpIndex, setPopUpIndex ] = useState(-1);
+    const [ isPoppedUp, togglePopUp ] = useReducer(
+        (prev: boolean, forceState?: boolean) => {
 
-    const openPopupAtIndex = (index: number): void => {
+            if (forceState !=  undefined) {
 
-        // If index is not in range of images return immediately
-        if (index < 0 || index >= props.imagePaths.length) {
+                return(forceState);
+            }
+            else {
 
+                return(prev ? false : true);
+            }
+        }, false);
+
+    const popUpImage = useCallback((index: number): void => {
+
+        // Check if index is in range of the image array
+        if (index < 0 || index >= images.length) {
+
+            console.error(`Cannot pop up image at index ${index}: index out of range`);
             return;
         }
 
-        setPopupIndex(index);
-    }
+        setPopUpIndex(index);
+        togglePopUp(true)
+    }, []);
 
-    const onClickHandler = (event: MouseEvent) => {
+    const closePopup = useCallback((): void => {
 
-        let imageEvent = event as ClickedImageEvent;
-
-        if (imageEvent.imageIndex != undefined) {
-
-            openPopupAtIndex(imageEvent.imageIndex);
-            setIsPoppedUp(true);
-        }
-    }
+        togglePopUp(false);
+    }, []);
 
     return(
         <>
             <div
-                className='image-gallery'
+                className="image-gallery"
                 style={{
-                    width: props.width,
                     height: props.height,
-                    borderWidth: props.borderWidth,
-                    borderColor: props.borderColor,
-                    backgroundColor: props.backgroundColor
+                    maxHeight: props.height,
+                    width: props.width,
+                    maxWidth: props.width
                 }}
-                onClick={onClickHandler}
             >
-                <div
-                    className='gallery-images'
+                <Gallery
+                    imagePaths={props.imagePaths}
+                    popUpImage={popUpImage}
                 >
-                    {imageThumbnails}
-                </div>
-                {
-                    isPoppedUp &&
-                    <GalleryPopup
-                        images={imageThumbnails}
-                        popupIndex={popupIndex}
-                        closePopup={() => {setIsPoppedUp(false)}}
-                    />
-                }
+                    {images}
+                </Gallery>
             </div>
-            
+            {  
+                isPoppedUp &&
+                <GalleryPopup
+                    closePopup={closePopup}
+                    popUpIndex={popUpIndex}
+                >
+                    {images}
+                </GalleryPopup>
+            }
         </>
     );
 }
@@ -74,26 +78,18 @@ export default function ImageGallery(
 type ImageGalleryProps = {
 
     imagePaths: string[],
-    width?: string | number,
-    height?: string | number,
-    borderWidth?: string | number,
-    borderColor?: string,
-    backgroundColor?: string
+    height?: number | string,
+    width?: number | string,
 }
 
-function generateImageElementsArray(imagePaths: string[]): ReactElement[] {
+function createImagesFromSource(imagePaths: string[]): ReactElement[] {
 
-    let imageArray: ReactElement[] = [];
+    let images: ReactElement[] = [];
 
     for (let index = 0; index < imagePaths.length; index++) {
 
-        imageArray.push(
-            <Image
-                imagePath={imagePaths[index]}
-                index={index}
-            />
-        );
+        images.push(<GalleryImage src={imagePaths[index]} index={index}/>);
     }
 
-    return(imageArray);
+    return(images);
 }
