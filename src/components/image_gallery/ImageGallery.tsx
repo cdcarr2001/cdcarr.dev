@@ -46,22 +46,13 @@ export default function ImageGallery(
 
     return(
         <>
-            <div
-                className="image-gallery"
-                style={{
-                    height: props.height,
-                    maxHeight: props.height,
-                    width: props.width,
-                    maxWidth: props.width
-                }}
-            >
                 <Gallery
                     imagePaths={props.imagePaths}
                     popUpImage={popUpImage}
-                >
-                    {images}
-                </Gallery>
-            </div>
+                width={props.width}
+                height={props.height}
+                images={images}
+            />
             {  
                 isPoppedUp &&
                 <GalleryPopup
