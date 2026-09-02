@@ -30,5 +30,9 @@
     "previewImage": "/path/to/image",
     "extraImages": [
         "/path/to/image"
-    ]
+    ],
+    "links": {
+        "github": "",
+        "liveSite": ""
+    }
 }

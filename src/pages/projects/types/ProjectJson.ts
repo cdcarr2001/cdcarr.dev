@@ -19,5 +19,9 @@ export type ProjectJson = {
     dateStart: string,
     dateEnd: string,
     previewImage: string,
-    extraImages: string[];
+    extraImages: string[],
+    links: {
+        github?: string,
+        liveSite?: string
+    }
 }
