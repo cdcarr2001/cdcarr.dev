@@ -1,4 +1,4 @@
-import { useReducer, type ActionDispatch, type MouseEvent, type ReactElement } from "react";
+import { useEffect, useReducer, useState, type ActionDispatch, type MouseEvent, type ReactElement } from "react";
 
 // TODO document
 // TODO add image thumbnails to popup tray
@@ -8,6 +8,8 @@ export default function GalleryPopup(
     props: GalleryPopupProps
 ): ReactElement {
 
+    const [ thumbnailImages, setThumbnailImages ] = useState<ReactElement[][]>();
+
     const [ imageIndex, setIndex ] = useReducer(
         (currentIndex: number, newIndex: number) => {
 
@@ -15,8 +17,8 @@ export default function GalleryPopup(
 
                 console.error(`Cannot set index to ${newIndex}: out of range`);
                 return(currentIndex);
-                    }
-                    else {
+            }
+            else {
 
                 return(newIndex);
             }
@@ -85,6 +87,58 @@ export default function GalleryPopup(
         shiftIndex('right');
     }
 
+    const onThumbnailClick = (event: MouseEvent): void => {
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        let imageIndexRaw = (event.target as HTMLElement).dataset.imageIndex;
+
+        if (imageIndexRaw) {
+            
+            setIndex(Number.parseInt(imageIndexRaw));
+        }
+    }
+
+    useEffect(() => {
+
+        let imagesCopy: ReactElement[] = [...props.images];
+
+        let arrayLengthMinusCenter = imagesCopy.length - 1;
+
+        let halfArray = arrayLengthMinusCenter / 2;
+
+        let leftAmount = Math.ceil(halfArray);
+
+        let rightAmount = Math.floor(halfArray);
+
+        let centerImage = imagesCopy.slice(imageIndex, imageIndex + 1);
+        let leftImages: ReactElement[] = [];
+        let rightImages: ReactElement[] = [];
+
+        for (let amount = 0, index = imageIndex - 1; leftAmount > amount; amount++, index--) {
+
+            if (index < 0) {
+
+                index += imagesCopy.length;
+            }
+            
+            leftImages.unshift(imagesCopy[index]);
+        }
+
+        for (let amount = 0, index = imageIndex + 1; rightAmount > amount; amount++, index++) {
+
+            if (index > imagesCopy.length - 1) {
+
+                index -= imagesCopy.length;
+            }
+            
+            rightImages.push(imagesCopy[index]);
+        }
+
+        setThumbnailImages([leftImages, centerImage, rightImages]);
+    }, [imageIndex]);
+
     return(
         <div
             className='image-gallery-popup'
@@ -102,7 +156,55 @@ export default function GalleryPopup(
                 <div
                     className='thumbnails'
                 >
-                    <p>Thumbnails here!</p>
+
+                    {
+                        thumbnailImages ? 
+                            <div
+                                className='thumbnail-containers-container left'
+                            >
+                                {thumbnailImages[0].map((image, index) => (
+                                    <div
+                                        key={index}
+                                        className='thumbnail-image-container'
+                                        onClick={onThumbnailClick}
+                                    >
+                                        {image}
+                                    </div>
+                                ))}
+                            </div>
+                            : undefined
+                    }
+                    {
+                        thumbnailImages ?
+                            <div
+                                className='thumbnail-containers-container center'
+                            >
+                                <div
+                                    className='thumbnail-image-container'
+                                    onClick={onThumbnailClick}
+                                >
+                                    {thumbnailImages[1]}
+                                </div>
+                            </div>
+                            : undefined
+                    }
+                    {
+                        thumbnailImages ?
+                            <div
+                                className='thumbnail-containers-container right'
+                            >
+                                {thumbnailImages[2].map((image, index) => (
+                                    <div
+                                        key={index}
+                                        className='thumbnail-image-container'
+                                        onClick={onThumbnailClick}
+                                    >
+                                        {image}
+                                    </div>
+                                ))}
+                            </div>
+                            : undefined
+                    }
                 </div>
                 <button
                     className='arrow left'
