@@ -179,8 +179,11 @@ a {
     width: 100%;
 
     .header {
+        
+        margin-bottom: 2%;
 
-        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
 
         h1 {
         
