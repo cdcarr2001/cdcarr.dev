@@ -86,8 +86,28 @@ export default function Project(): ReactElement {
             <div
                 className='project-description'
             >
-                <h4>Description:</h4>
-                {projectJson.desc}
+                <h3>Description:</h3>
+                {projectJson.desc.split('\n').map((text, index) => (
+                    <p
+                        key={index}
+                    >
+                        {text}
+                        <br/>
+                    </p>
+                ))}
+            </div>
+            <div
+                className='project-details'
+            >
+                <h3>Details:</h3>
+                {projectJson.details.split('\n').map((text, index) => (
+                    <p
+                        key={index}
+                    >
+                        {text}
+                        <br/>
+                    </p>
+                ))}
             </div>
         </div>
     );

@@ -213,9 +213,19 @@ a {
     }
 
     .project-information {
+
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
     }
 
     .project-description {
+
+        margin-top: 10px;
+        font-size: large;
+    }
+
+    .project-details {
 
         margin-top: 10px;
         font-size: large;
