@@ -8,37 +8,52 @@ export default function GalleryPopup(
     props: GalleryPopupProps
 ): ReactElement {
 
-    const [ imageIndex, changeIndex ] = useReducer(
-        (prev: number, direction: 'right' | 'left') => {
+    const [ imageIndex, setIndex ] = useReducer(
+        (currentIndex: number, newIndex: number) => {
 
-            switch (direction) {
+            if (newIndex < 0 || newIndex >= props.images.length) {
 
-                case "right": {
-
-                    if (prev == props.images.length - 1) {
-
-                        return(0);
+                console.error(`Cannot set index to ${newIndex}: out of range`);
+                return(currentIndex);
                     }
                     else {
 
-                        return(prev + 1);
-                    }
-                }
-                case "left": {
-
-                    if (prev == 0) {
-
-                        return(props.images.length - 1);
-                    }
-                    else {
-
-                        return(prev - 1);
-                    }
-                }
+                return(newIndex);
             }
         },
         props.popUpIndex
     );
+
+    const shiftIndex = (direction: 'left' | 'right'): void => {
+
+        switch (direction) {
+
+            case "left": {
+
+                if (imageIndex == 0) {
+
+                    setIndex(props.images.length - 1);
+                }
+                else {
+
+                    setIndex(imageIndex - 1);
+                }
+                break;
+            }
+            case "right": {
+
+                if (imageIndex == props.images.length - 1) {
+
+                    setIndex(0);
+                }
+                else {
+
+                    setIndex(imageIndex + 1);
+                }
+                break;
+            }
+        }
+    }
 
     const onClickHandler = (event: MouseEvent): void => {
 
@@ -59,7 +74,7 @@ export default function GalleryPopup(
         event.preventDefault();
         event.stopPropagation();
 
-        changeIndex('left');
+        shiftIndex('left');
     }
 
     const onRightButton = (event: MouseEvent): void => {
@@ -67,7 +82,7 @@ export default function GalleryPopup(
         event.preventDefault();
         event.stopPropagation();
 
-        changeIndex('right');
+        shiftIndex('right');
     }
 
     return(
