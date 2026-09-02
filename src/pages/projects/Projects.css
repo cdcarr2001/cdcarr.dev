@@ -230,4 +230,50 @@ a {
         margin-top: 10px;
         font-size: large;
     }
+
+    .project-knowledge {
+
+        margin-top: 10px;
+        font-size: large;
+
+        table {
+
+            border-style: solid;
+            border-width: 1px;
+            border-color: light-dark(black, white);
+            border-collapse: collapse;
+
+            thead {
+
+                th {
+
+                    border-style: solid;
+                    border-width: 1px;
+                    border-color: light-dark(black, white);
+
+                    font-size: large;
+                }
+            }
+
+            tbody {
+
+                tr {
+
+                    td {
+
+                        border-style: solid;
+                        border-width: 1px;
+                        border-color: light-dark(black, white);
+
+                        padding-left: 10px;
+                        padding-right: 10px;
+
+                        font-size: medium;
+
+                        justify-content: left;
+                    }
+                }
+            }
+        }
+    }
 }

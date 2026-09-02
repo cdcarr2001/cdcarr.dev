@@ -109,6 +109,31 @@ export default function Project(): ReactElement {
                     </p>
                 ))}
             </div>
+            <div
+                className='project-knowledge'
+            >
+                <h3>Knowledge and Experience</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Concept</th>
+                            <th>Before</th>
+                            <th>After</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            projectJson.knowledge.map((item, index) => (
+                                <tr key={index}>
+                                    <td>{item.item}</td>
+                                    <td>{item.before}</td>
+                                    <td>{item.after}</td>
+                                </tr>
+                            ))
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 }
