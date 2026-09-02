@@ -4,7 +4,6 @@ import { NavLink } from "react-router";
 
 // TODO document
 // TODO improve visuals
-// TODO add sorting feature
 // TODO add short description to preview when hovered over
 
 export default function ProjectPreview(
@@ -52,33 +51,33 @@ export default function ProjectPreview(
                         {
                             languages.length > 0 &&
                             <div>
-                                {languages.map(
-                                    language => <span className='project-info-bubble language'>{language}</span>
-                                )}
+                                {languages.map((language, index) => (
+                                    <span key={index} className='project-info-bubble language'>{language}</span>
+                                ))}
                             </div>
                         }
                         {
                             libraries.length > 0 &&
                             <div>
-                                {libraries.map(
-                                    library => <span className='project-info-bubble library'>{library}</span>
-                                )}
+                                {libraries.map((library, index) => (
+                                    <span key={index} className='project-info-bubble library'>{library}</span>
+                                ))}
                             </div>
                         }
                         {
                             frameworks.length > 0 &&
                             <div>
-                                {frameworks.map(
-                                    framework => <span className='project-info-bubble framework'>{framework}</span>
-                                )}
+                                {frameworks.map((framework, index) => (
+                                    <span key={index} className='project-info-bubble framework'>{framework}</span>
+                                ))}
                             </div>
                         }
                         {
                             technologies.length > 0 &&
                             <div>
-                                {technologies.map(
-                                    technology => <span className='project-info-bubble technology'>{technology}</span>
-                                )}
+                                {technologies.map((technology, index) => (
+                                    <span key={index} className='project-info-bubble technology'>{technology}</span>
+                                ))}
                             </div>
                         }
                     </div>

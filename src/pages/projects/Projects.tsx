@@ -6,6 +6,7 @@ import { PROJECT_MAP } from "./constants/ProjectMap";
 import './Projects.css';
 
 // TODO make look cleaner
+// TODO add sorting feature
 
 /**
  * Projects page
@@ -29,7 +30,11 @@ export default function Projects(): ReactElement {
             <div
                 id='project-containers'
             >
-                {projectPreviews}
+                {projectPreviews.map((element, index) => (
+                    <ul key={index}>
+                        {element}
+                    </ul>
+                ))}
             </div>
         </div>
     );
