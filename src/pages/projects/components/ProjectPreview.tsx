@@ -3,15 +3,15 @@ import type { ProjectJson } from "../types/ProjectJson";
 import { NavLink } from "react-router";
 
 // TODO document
-// TODO improve visuals
-// TODO add short description to preview when hovered over
+// TODO improve visuals (coloring project info items in dark mode, general dark mode improvements)
 
 export default function ProjectPreview(
     props: ProjectPreviewProps
 ): ReactElement {
 
     /** Languages used in the project */
-    const languages: string[] = props.projectJson.programmingLanguages?.concat(props.projectJson.otherLanguages);
+    const languages: string[] = props.projectJson.programmingLanguages
+                                ?.concat(props.projectJson.otherLanguages);
     /** Libraries used in the project */
     const libraries: string[] = props.projectJson.libraries;
     /** Frameworks used in the project */
@@ -81,6 +81,11 @@ export default function ProjectPreview(
                             </div>
                         }
                     </div>
+                    <p
+                        className='project-description'
+                    >
+                        {props.projectJson.shortDesc}
+                    </p>
                 </div>
             </NavLink>
         </div>  
