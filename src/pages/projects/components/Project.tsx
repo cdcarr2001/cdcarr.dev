@@ -5,9 +5,7 @@ import ProjectNotFound from "./ProjectNotFound";
 import ImageGallery from "@components/image_gallery/ImageGallery";
 
 // TODO document
-// TODO fix missing unique key error
-// TODO add information about project
-// TODO add more CSS for the page
+// TODO improve layout
 
 export default function Project(): ReactElement {
 
