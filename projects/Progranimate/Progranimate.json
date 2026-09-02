@@ -1,8 +1,50 @@
 {
     "name": "Progranimate",
     "shortDesc": "Progranimate is a tool created to help students better understand the flow of code.",
-    "desc": "Progranimate is a tool created to help students better understand the flow of code through an interactive flowchart and the ability to run code from the website.",
-    "details": "details about the project",
+    "desc": "Progranimate is a tool created to help students better understand the flow of code. It features an interactive flowchart with drag and drop features, the ability to run code in the browser, programming exercises, and the ability to save, load, import, and export programs. Currently Progranimate only supports Python, but Java support is planned.",
+    "details": "I joined this project in my senior year at Western Carolina University as my capstone project. This project was unique compared to all the rest because it has been an ongoing project passed from group to group for at least 3 years prior to my turn working on it. As such, there was already a sizeable codebase that I had to learn before I could even start development of new features.\nDuring my time working on the project, I was originally tasked with debugging and repairing the existing flowchart, however after a semester it was agreed upon by my professor and I that the flowchart needed replacing due to flaws in its underlying data structure and issues with using react-flow. Over the following semester I designed and implemented a new flowchart, featuring a new underlying data structure, built using only base React, using HTML's drag and drop API and CSS styling to determine the layout of the flowchart.\nAfter graduation, my professor worked with the college to make development on Progranimate into a paid position, which I was hired onto so that I could implement new features and bring the project up to meet Web Content Accessibility Guidelines (WCAG).",
+    "knowledge": [
+        {
+            "item": "JavaScript",
+            "before": "Experienced",
+            "after": "Very experienced"
+        },
+        {
+            "item": "TypeScript",
+            "before": "Little knowledge, no experience",
+            "after": "Very experienced"
+        },
+        {
+            "item": "HTML",
+            "before": "Little knowledge, no experience",
+            "after": "Experienced"
+        },
+        {
+            "item": "CSS",
+            "before": "Little knowledge, no experience",
+            "after": "Experienced"
+        },
+        {
+            "item": "React",
+            "before": "No knowledge, no experience",
+            "after": "Experienced"
+        },
+        {
+            "item": "Docker",
+            "before": "Little experience",
+            "after": "Some experience"
+        },
+        {
+            "item": "MongoDB",
+            "before": "Little experience",
+            "after": "Some experience"
+        },
+        {
+            "item": "Vite",
+            "before": "No knowledge, no experience",
+            "after": "Little experience"
+        }
+    ],
     "programmingLanguages": [
         "TypeScript",
         "JavaScript"
@@ -25,18 +67,6 @@
     "dateEnd": "Current",
     "previewImage": "/projects/Progranimate/images/preview.png",
     "extraImages": [
-        "/projects/Progranimate/images/preview.png",
-        "/projects/Progranimate/images/preview2.png",
-        "/projects/Progranimate/images/preview2.png",
-        "/projects/Progranimate/images/preview2.png",
-        "/projects/Progranimate/images/preview2.png",
-        "/projects/Progranimate/images/preview2.png",
-        "/projects/Progranimate/images/preview2.png",
-        "/projects/Progranimate/images/preview2.png",
-        "/projects/Progranimate/images/preview2.png",
-        "/projects/Progranimate/images/preview2.png",
-        "/projects/Progranimate/images/preview2.png",
-        "/projects/Progranimate/images/preview2.png",
-        "/projects/Progranimate/images/preview3.png"
+        "/projects/Progranimate/images/preview.png"
     ]
 }

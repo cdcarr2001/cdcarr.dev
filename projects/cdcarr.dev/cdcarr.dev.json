@@ -2,7 +2,8 @@
     "name": "cdcarr.dev",
     "shortDesc": "cdcarr.dev is the site you are on right now, created to showcase information about myself and my work.",
     "desc": "",
-    "details": "",
+    "knowledge": [
+    ],
     "programmingLanguages": [
         "TypeScript",
         "JavaScript"

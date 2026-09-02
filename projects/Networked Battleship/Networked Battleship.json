@@ -3,6 +3,8 @@
     "shortDesc": "A simple game of Battleship running over a network with 2+ clients and a server.",
     "desc": "",
     "details": "details about the project",
+    "knowledge": [
+    ],
     "programmingLanguages": [
         "Java"
     ],
