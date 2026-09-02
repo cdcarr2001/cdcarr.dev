@@ -3,6 +3,12 @@
     "shortDesc": "short description",
     "desc": "detailed description",
     "details": "details about the project",
+    "goingIn": [
+        "list of knowledge pertaining to the project technologies going into it"
+    ],
+    "comingOut": [
+        "list of knowledge pertaining to the project technologies coming out of it"
+    ],
     "programminglanguages": [
         "language"
     ],
