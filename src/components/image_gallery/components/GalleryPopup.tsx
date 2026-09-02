@@ -2,6 +2,7 @@ import { useReducer, type ActionDispatch, type MouseEvent, type ReactElement } f
 
 // TODO document
 // TODO add image thumbnails to popup tray
+// TODO add exit button maybe?
 
 export default function GalleryPopup(
     props: GalleryPopupProps
@@ -14,7 +15,7 @@ export default function GalleryPopup(
 
                 case "right": {
 
-                    if (prev == props.children.length - 1) {
+                    if (prev == props.images.length - 1) {
 
                         return(0);
                     }
@@ -27,7 +28,7 @@ export default function GalleryPopup(
 
                     if (prev == 0) {
 
-                        return(props.children.length - 1);
+                        return(props.images.length - 1);
                     }
                     else {
 
@@ -81,24 +82,24 @@ export default function GalleryPopup(
                 <div
                     className='popup-image-container'
                 >
-                    {props.children[imageIndex]}
+                    {props.images[imageIndex]}
                 </div>
                 <div
                     className='thumbnails'
                 >
-                    <span>Thumbnails here!</span>
+                    <p>Thumbnails here!</p>
                 </div>
                 <button
                     className='arrow left'
                     onClick={onLeftButton}
                 >
-                    <span>{"<"}</span>
+                    <p>{"<"}</p>
                 </button>
                 <button
                     className='arrow right'
                     onClick={onRightButton}
                 >
-                    <span>{">"}</span>
+                    <p>{">"}</p>
                 </button>
             </div>
         </div>
@@ -107,7 +108,7 @@ export default function GalleryPopup(
 
 type GalleryPopupProps = {
     
-    children: ReactElement[],
+    images: ReactElement[],
     popUpIndex: number,
     closePopup: ActionDispatch<[]>
 }

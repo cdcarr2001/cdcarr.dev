@@ -46,9 +46,9 @@ export default function ImageGallery(
 
     return(
         <>
-                <Gallery
-                    imagePaths={props.imagePaths}
-                    popUpImage={popUpImage}
+            <Gallery
+                imagePaths={props.imagePaths}
+                popUpImage={popUpImage}
                 width={props.width}
                 height={props.height}
                 images={images}
@@ -58,9 +58,8 @@ export default function ImageGallery(
                 <GalleryPopup
                     closePopup={closePopup}
                     popUpIndex={popUpIndex}
-                >
-                    {images}
-                </GalleryPopup>
+                    images={images}
+                />
             }
         </>
     );
