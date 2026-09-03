@@ -7,12 +7,24 @@
     &[data-theme = 'light'] {
 
         color-scheme: light;
+
+        /* Hide darkmode elements */
+        *.darkmode {
+
+            display: none;
+        }
     }
 
     /* Dark mode override */
     &[data-theme = 'dark'] {
 
-        color-scheme: dark;   
+        color-scheme: dark;
+
+        /* Hide lightmode elements */
+        *.lightmode {
+
+            display: none;
+        }
     }
 
     /* Global color variables */
