@@ -1,0 +1,44 @@
+{
+    "name": "Encryption with PyCryptodome",
+    "shortDesc": "A terminal application capable of generating AES and RSA keys, encrypting files, and decrypting files using PyCryptodome.",
+    "desc": "A terminal application capable of generating AES and RSA keys, encrypting files, and decrypting files using PyCryptodome. There are 12 menu items with differing uses such as generating keys, viewing files and keys, encrypting/decrypting files, and encrypting/decrypting keys. Each menu item prompts the user for the information required to complete the action and provides feedback when the action fails.\nWhen decrypting files, the digests will be compared to ensure the file was decrypted correctly. When decrypting keys, if the incorrect private key was used for decryption, it will fail and inform the user, and if the incorrect public key is used, it will inform the user that the signature could not be verified.",
+    "details": "This project was a project done for CS466: Information Security at Western Carolina University. It was completed in one day. I completed this project solo, and as such have uploaded it to GitHub for viewing.",
+    "knowledge": [
+        {
+            "item": "Python",
+            "before": "Very experienced",
+            "after": "Very experienced"
+        },
+        {
+            "item": "PyCryptodome",
+            "before": "No knowledge, no experience",
+            "after": "Some experience"
+        }
+    ],
+    "programmingLanguages": [
+        "Python"
+    ],
+    "otherLanguages": [
+    ],
+    "libraries": [
+        "PyCryptodome"
+    ],
+    "frameworks": [
+    ],
+    "otherTechnologies": [
+    ],
+    "dateStart": "2024-11-15",
+    "dateEnd": "2024-11-15",
+    "previewImage": "/projects/Encryption with PyCryptodome/images/preview.png",
+    "extraImages": [
+        "/projects/Encryption with PyCryptodome/images/preview.png",
+        "/projects/Encryption with PyCryptodome/images/aes_key_encryption.png",
+        "/projects/Encryption with PyCryptodome/images/aes_key_decryption.png",
+        "/projects/Encryption with PyCryptodome/images/aes_key_decryption_incorrect_private.png",
+        "/projects/Encryption with PyCryptodome/images/aes_key_decryption_incorrect_public.png",
+        "/projects/Encryption with PyCryptodome/images/decrypt_fail.png"
+    ],
+    "links": {
+        "github": "https://github.com/cdcarr2001/Encryption-with-PyCryptodome"
+    }
+}

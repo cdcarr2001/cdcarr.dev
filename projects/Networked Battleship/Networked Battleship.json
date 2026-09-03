@@ -1,9 +1,19 @@
 {
     "name": "Networked Battleship",
-    "shortDesc": "A simple game of Battleship running over a network with 2+ clients and a server.",
-    "desc": "",
-    "details": "details about the project",
+    "shortDesc": "A simple game of Battleship in the terminal running over a network with 2+ clients and a server.",
+    "desc": "A simple game of Battleship in the terminal running over a network with 2+ clients and a server. Clients can connect to a specific address and port, set their username, start a game of battleship, fire on other players, view their map, and surrender the game. The server handles the game state, and communication to and from clients.",
+    "details": "This project was a project done for CS465: Computer Networking at Western Carolina University. This was a partnered project and was not done solely by me, as such I have not reuploaded this to a public GitHub as I cannot claim the entirety of the work as my own.",
     "knowledge": [
+        {
+            "item": "Java",
+            "before": "Very experienced",
+            "after": "Very experienced"
+        },
+        {
+            "item": "Java Sockets",
+            "before": "Little knowledge, no experience",
+            "after": "Some experience"
+        }
     ],
     "programmingLanguages": [
         "Java"
@@ -19,7 +29,10 @@
     ],
     "dateStart": "2024-12",
     "dateEnd": "2024-12",
-    "previewImage": "",
+    "previewImage": "/projects/Networked Battleship/images/preview.png",
     "extraImages": [
+        "/projects/Networked Battleship/images/preview.png",
+        "/projects/Networked Battleship/images/comparison.png",
+        "/projects/Networked Battleship/images/server_output.png"
     ]
 }

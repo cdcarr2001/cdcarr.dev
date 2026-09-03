@@ -1,8 +1,44 @@
 {
     "name": "cdcarr.dev",
-    "shortDesc": "cdcarr.dev is the site you are on right now, created to showcase information about myself and my work.",
-    "desc": "",
+    "shortDesc": "cdcarr.dev is the website you are on right now, created to showcase information about myself and my work.",
+    "desc": "cdcarr.dev is the website you are on right now, created to showcase information about myself and my work. It is designed to work as a digital portfolio for employers to be able to see what I have worked on, rather than just read what is listed on my resume.\nThe website is a single page application, due to it's simple and lightweight nature. Some smaller libraries used include react-hash-browser to manage the pages and react-select for the projects filter bar.",
+    "details": "This project was only started in early August, so it is rather fresh in development. I have also opted to do as much myself as I am reasonably able to do, as that provides me with more experience using the base tools. While I have worked with React and Vite before, this was the first time I had created a website from scratch, so it has taken a bit to build out each aspect, and keep older parts updated to my evolving standards.\nThis website is visually rough currently as it is a work in progress, only started recently and with little spare time to work on it between jobs. It is being updated with new functionality and improved visuals as I have the time to add them.\nThis website is not currently designed for use on mobile devices, but will be updated in the future.",
     "knowledge": [
+        {
+            "item": "TypeScript",
+            "before": "Very experienced",
+            "after": "Very experienced"
+        },
+        {
+            "item": "JavaScript",
+            "before": "Very experienced",
+            "after": "Very experienced"
+        },
+        {
+            "item": "HTML",
+            "before": "Experienced",
+            "after": "Experienced"
+        },
+        {
+            "item": "CSS",
+            "before": "Experienced",
+            "after": "Experienced"
+        },
+        {
+            "item": "React",
+            "before": "Experienced",
+            "after": "Very experienced"
+        },
+        {
+            "item": "Vite",
+            "before": "Little experience",
+            "after": "Some experience"
+        },
+        {
+            "item": "Github Pages",
+            "before": "No knowledge, no experience",
+            "after": "Some experience"
+        }
     ],
     "programmingLanguages": [
         "TypeScript",
@@ -18,11 +54,16 @@
     "frameworks": [
     ],
     "otherTechnologies": [
-        "Vite"
+        "Vite",
+        "Github Pages"
     ],
     "dateStart": "2026-08",
     "dateEnd": "Current",
     "previewImage": "",
     "extraImages": [
-    ]
+    ],
+    "links": {
+
+        "github": "https://github.com/cdcarr2001/cdcarr.dev"
+    }
 }
