@@ -220,9 +220,24 @@ a {
 
     .project-information {
 
+        position: relative;
         display: flex;
         flex-direction: column;
         gap: 2px;
+
+        .project-links {
+
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: fit-content;
+            max-width: 2vw;
+
+            display: block;
+            flex-direction: row;
+
+            transform: translateY(-2vh);
+        }
     }
 
     .project-description {

@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import { PROJECT_MAP } from "../constants/ProjectMap";
 import ProjectNotFound from "./ProjectNotFound";
 import ImageGallery from "@components/image_gallery/ImageGallery";
+import ExternalLink from "@components/external_link/ExternalLink";
 
 // TODO document
 // TODO improve layout
@@ -79,6 +80,15 @@ export default function Project(): ReactElement {
                     <div>
                         {`Technologies: ${technologies.join(', ')}`}
                     </div>
+                }
+                {
+                    projectJson.links?.github ? 
+                    <div
+                        className='project-links'
+                    >
+                        <ExternalLink link={projectJson.links.github} site='github'/>
+                    </div>
+                    : undefined
                 }
             </div>
             <div
