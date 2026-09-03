@@ -4,7 +4,7 @@
     grid-template-areas:
         "intro ."
         "picture information";
-    grid-template-columns: min-content 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: auto 1fr;
     column-gap: 10px;
     
@@ -20,23 +20,39 @@
 
         font-size: 50px;
         align-items: right;
+
+        text-align: justify;
+        text-align-last: justify;
     }
 
     > #information-section {
 
         grid-area: information;
-        
-        hyphens: auto;
-        overflow-wrap: break-word;
+
+        height: 100%;
+        max-height: 100%;
+        width: auto;
+        max-width: 100%;
+
+        p {
+
+            margin: 0;
+
+            text-wrap: wrap;
+
+            font-size: 1.2rem;
+            line-height: clamp(1.4, 1.2 + 1vw, 1.8);
+        }
     }
 
     > #home-picture {
 
         grid-area: picture;
         width: 100%;
-        height: 100%;
+        max-width: 100%;
+        height: auto;
         object-fit: cover;
 
-        border-radius: 15%;
+        border-radius: 10%;
     }
 }

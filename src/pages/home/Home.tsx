@@ -23,7 +23,9 @@ export default function Home(): ReactElement {
             <div
                 id="information-section"
             >
-                {info.shortDesc}
+                <p>
+                    {info.shortDesc}
+                </p>
             </div>
         </div>
     );
