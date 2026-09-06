@@ -31,11 +31,9 @@ a {
         grid-template-columns: repeat(3, 1fr);
         gap: 20px;
 
-        ul {
-
-            padding: 0;
-            margin: 0;
-        }
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
 
         .project-preview-container {
 
@@ -169,6 +167,11 @@ a {
             }
         }
 
+        li:has(.hidden) {
+
+            display: none;
+        }
+
         /* TODO replace with JS detection of the element change going off screen */
         /* Set last row of elements to pop up rather than down */
         > :nth-child(3n+1):nth-last-child(-n+3),
@@ -184,7 +187,7 @@ a {
     #project-filters {
 
         grid-area: search;
-        width: calc((100% / 3) - 8px);
+        width: calc((100% / 3) - 10px);
 
         .group-label {
 

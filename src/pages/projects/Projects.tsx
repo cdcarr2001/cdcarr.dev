@@ -27,15 +27,15 @@ export default function Projects(): ReactElement {
                 <h1>Projects</h1>
                 <Filters/>
             </div>
-            <div
+            <ul
                 id='project-containers'
             >
                 {projectPreviews.map((element, index) => (
-                    <ul key={index}>
+                    <li key={index}>
                         {element}
-                    </ul>
+                    </li>
                 ))}
-            </div>
+            </ul>
         </div>
     );
 }
