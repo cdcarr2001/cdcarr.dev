@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { createHashRouter, RouterProvider } from 'react-router'
 import Home from '@pages/home/Home.tsx'
 import About from '@pages/about/About.tsx'
-import Contact from '@pages/contact/Contact.tsx'
+//import Contact from '@pages/contact/Contact.tsx'
 import Projects from '@pages/projects/Projects.tsx'
 import MainLayout from '@layouts/main/MainLayout'
 import NotFound from '@pages/not_found/NotFound'
@@ -32,11 +32,11 @@ const router = createHashRouter([
             {
                 path: "/projects/:projectName",
                 element: <Project/>
-            },
+            }/*,
             {
                 path: "/contact",
                 element: <Contact/>
-            }
+            }*/
         ]
     },
     {
