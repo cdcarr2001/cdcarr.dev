@@ -14,5 +14,33 @@
         "linkedIn": "linkedin.com/in/ID",
         "github": "github.com/ID"
     },
-    "shortDesc": "short description"
+    "education": [
+        {
+            "school": "",
+            "degree": {
+                "majors": [
+                    ""
+                ],
+                "minors": [
+                    ""
+                ]
+            },
+            "gpa": "",
+            "startDate": "",
+            "endDate": ""
+        }
+    ],
+    "shortDesc": "short description",
+    "skills": {
+        "programmingLanguages": [
+        ],
+        "otherLanguages": [
+        ],
+        "libraries": [
+        ],
+        "frameworks": [
+        ],
+        "technologies": [
+        ]
+    }
 }
