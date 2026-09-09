@@ -1,11 +1,12 @@
 import type { ReactElement } from "react";
 import info from '@config/info_config.json';
 import { NavLink } from "react-router";
+import { parseDate } from "@utils/parseDate";
 
 import './About.css';
 
+// TODO document
 // TODO make skills clickable to go to the projects page and add it to the search filter
-// TODO add professional experience information
 
 export default function About(): ReactElement {
 
@@ -119,6 +120,24 @@ export default function About(): ReactElement {
                 id='experience'
             >
                 <h2>Professional Experience</h2>
+                {info.experience.map((value, index) => (
+                    <div
+                        key={index}
+                        className='experience-item'
+                    >
+                        <p>
+                            <b>{value.title}</b> - {value.employer}{' '}
+                            {`(${parseDate(value.employmentRange.start)} - 
+                            ${parseDate(value.employmentRange.end)})`}  
+                        </p>
+                        Responsibilities:
+                        <ul>
+                            {value.responsibilities.map((value, index) => (
+                                <li key={index}>{value}</li>
+                            ))}
+                        </ul>
+                    </div>
+                ))}
             </div>
             <div
                 id='skills'
