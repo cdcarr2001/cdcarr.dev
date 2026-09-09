@@ -1,10 +1,12 @@
 import type { ReactElement } from "react";
-
-import './Home.css';
 import info from '@config/info_config.json';
 
-// TODO document
+import './Home.css';
 
+/**
+ * Home page
+ * @returns Home Page ReactElement
+ */
 export default function Home(): ReactElement {
 
     return(

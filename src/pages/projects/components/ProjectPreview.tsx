@@ -2,9 +2,13 @@ import type { ReactElement } from "react";
 import type { ProjectJson } from "../types/ProjectJson";
 import { NavLink } from "react-router";
 
-// TODO document
 // TODO improve visuals (coloring project info items in dark mode, general dark mode improvements)
 
+/**
+ * Preview of a project for Projects page
+ * @param props projectJson: The JSON of the project this preview is for
+ * @returns ReactElement of Project Preview
+ */
 export default function ProjectPreview(
     props: ProjectPreviewProps
 ): ReactElement {

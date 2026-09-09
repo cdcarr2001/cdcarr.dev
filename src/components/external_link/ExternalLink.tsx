@@ -2,8 +2,11 @@ import type { ReactElement } from "react";
 
 import './ExternalLink.css';
 
-// TODO document
-
+/**
+ * Link for an external site based on provided link and type
+ * @param props link: Link to site; site: What website category this is (ie github)
+ * @returns <a> element with relevant images linking to site
+ */
 export default function ExternalLink(
     props: ExternalLinkProps
 ): ReactElement {

@@ -6,9 +6,12 @@ import ImageGallery from "@components/image_gallery/ImageGallery";
 import ExternalLink from "@components/external_link/ExternalLink";
 import { parseDate } from "@utils/parseDate";
 
-// TODO document
 // TODO improve layout
 
+/**
+ * Individual Project page
+ * @returns Project page ReactElement
+ */
 export default function Project(): ReactElement {
 
     /** Project name */

@@ -1,5 +1,8 @@
-// TODO document
-
+/**
+ * Parse a date in YYYY-MM-DD format into a MonthName Year string
+ * @param dateString YYYY-MM-DD formated date
+ * @returns MonthName Year string
+ */
 export function parseDate(dateString: string): string {
 
     let split = dateString.split("-");

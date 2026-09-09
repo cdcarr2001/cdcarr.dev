@@ -5,15 +5,22 @@ import { parseDate } from "@utils/parseDate";
 
 import './About.css';
 
-// TODO document
 // TODO make skills clickable to go to the projects page and add it to the search filter
 
+/**
+ * About page
+ * @returns About page ReactElement
+ */
 export default function About(): ReactElement {
 
     let skillsTableLanguagesSpan = 
         (info.skills.programmingLanguages.length > 0 ? 1 : 0) +
         (info.skills.otherLanguages.length > 0 ? 1 : 0);
 
+    /**
+     * Fill the skills table based on info.skills information
+     * @returns Rows for HTML table
+     */
     let fillSkillsTable = (): ReactElement[] => {
 
         let skillsRows: ReactElement[] = [];
@@ -143,7 +150,8 @@ export default function About(): ReactElement {
                 id='skills'
             >
                 <h2>Skills</h2>
-                <p>Check the <NavLink to='/projects' className='navlink'>projects page</NavLink> to view and filter projects using these skills!</p>
+                <p>Check the <NavLink to='/projects' className='navlink'>projects page</NavLink> to
+                {' '}view and filter projects using these skills!</p>
                 <table
                     id='skills-table'
                 >
