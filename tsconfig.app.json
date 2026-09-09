@@ -29,7 +29,8 @@
       "@components/*": ["./src/components/*"],
       "@layouts/*": ["./src/layouts/*"],
       "@pages/*": ["./src/pages/*"],
-      "@config/*": ["./config/*"]
+      "@config/*": ["./config/*"],
+      "@utils/*": ["./src/utils/*"],
     }
   },
   "include": ["src", "tools/generateProjectList.ts"]
