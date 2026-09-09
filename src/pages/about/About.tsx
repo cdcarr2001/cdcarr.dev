@@ -78,6 +78,28 @@ export default function About(): ReactElement {
                 <p>{info.shortDesc}</p>
             </div>
             <div
+                id='contact-and-resume'
+            >
+                <h2>Contact and Resume</h2>
+                <p>
+                    🖂 Email: <a href={`mailto:${info.contact.email}`}>{info.contact.email}</a>
+                </p>
+                <p>
+                    ✆ Phone: <a href={`tel:${info.contact.phone}`}>{info.contact.phone}</a>
+                </p>
+                <p>
+                    🗎 Resume:{' '}
+                    <a
+                        href='/misc/resume.pdf'
+                        download={`
+                            ${info.name.first}_${info.name.middle.charAt(0)}_${info.name.last}_Resume.pdf
+                        `}
+                    >
+                        Download <b>⭳</b>
+                    </a>
+                </p>
+            </div>
+            <div
                 id='education'
             >
                 <h2>Education</h2>
