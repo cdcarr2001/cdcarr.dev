@@ -30,6 +30,19 @@
             "endDate": ""
         }
     ],
+    "experience": [
+        {
+            "employer": "",
+            "title": "",
+            "responsibilities": [
+                ""
+            ],
+            "employmentRange": {
+                "start": "",
+                "end": ""
+            }
+        }
+    ],
     "shortDesc": "short description",
     "skills": {
         "programmingLanguages": [
