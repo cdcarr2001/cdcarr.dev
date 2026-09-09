@@ -301,3 +301,12 @@ a {
         }
     }
 }
+
+#project-not-found {
+
+    margin: auto;
+
+    > * {
+        text-align: center;
+    }
+}

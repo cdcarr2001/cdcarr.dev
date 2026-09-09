@@ -1,20 +1,25 @@
 import type { ReactElement } from "react";
-import { useParams } from "react-router";
+import { NavLink, useParams } from "react-router";
 
-// TODO document
-// TODO make more visually appealing
-// TODO add link to projects page
-
+/**
+ * Project not found indicator
+ * @returns ReactElement for when a project is not found
+ */
 export default function ProjectNotFound(): ReactElement {
 
     /** Project name */
     const { projectName } = useParams();
 
     return(
-        <div>
+        <div
+            id='project-not-found'
+        >
             <h1>
-                No project with the name {projectName} was found!
+                Could not find project: {projectName}
             </h1>
+            <h2>
+                Click <NavLink to='/projects'>here</NavLink> to return to the projects page.
+            </h2>
         </div>
     );
 }
