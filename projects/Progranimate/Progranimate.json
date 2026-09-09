@@ -65,8 +65,14 @@
     ],
     "dateStart": "2025-08",
     "dateEnd": "Current",
-    "previewImage": "/projects/Progranimate/images/preview.png",
+    "previewImage": "/projects/Progranimate/images/simple.png",
     "extraImages": [
-        "/projects/Progranimate/images/preview.png"
+        "/projects/Progranimate/images/home.png",
+        "/projects/Progranimate/images/login.png",
+        "/projects/Progranimate/images/saved_programs.png",
+        "/projects/Progranimate/images/simple.png",
+        "/projects/Progranimate/images/simple_exercise.png",
+        "/projects/Progranimate/images/if_statements.png",
+        "/projects/Progranimate/images/nesting.png"
     ]
 }
