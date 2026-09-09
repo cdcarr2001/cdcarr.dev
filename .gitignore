@@ -13,3 +13,6 @@
 # Ignore created projects
 /public/projects/*
 !/public/projects/ex_project
+
+# Misc public items
+resume.pdf
