@@ -2,7 +2,7 @@
   "name": "cdcarr.dev",
   "private": false,
   "homepage": "https://cdcarr2001.github.io/cdcarr.dev",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
