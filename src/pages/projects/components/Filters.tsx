@@ -1,19 +1,45 @@
 import { useEffect, useRef, useState, type ReactElement } from "react";
 import Select, { type ActionMeta, type MultiValue } from "react-select";
 
-// TODO document
 // TODO add name search
-// TODO define proper CSS stype so text is visible in both light and dark mode
+// TODO refine css state
 // TODO add filters to URL to allow for saving while going back and forth
 // TODO add async options https://react-select.com/async
 
+/**
+ * Filter element for Projects page
+ * Filters are created from currently displayed projects. When adding or removing a filter,
+ * projects are hidden or shown if they match the new filter
+ * @returns Filter ReactElement
+ */
 export default function Filters(): ReactElement {
 
     /** Project previews container reference */
     const projectPreviews = useRef<HTMLElement>(null);
     /** Language filtering options */
     const [ groupOptions, setGroupOptions ] = useState<GroupOptions[]>([]);
+    /** Styles for Select element */
+    const customStyles = {
+        menu: (provided: any) => ({
+            ...provided,
+            backgroundColor: 'light-dark(white, black)'
+        }),
+        option: (provided: any, state: any) => ({
+            ...provided,
+            backgroundColor:
+                state.isSelected ? 
+                    'light-dark(#deebff, #3c495c)' :
+                    state.isFocused ?
+                        'light-dark(#deebff, #3c495c)' :
+                        'transparent'
+        })
+    }
 
+    /**
+     * Format the group label element
+     * @param group Group of options to format the label of
+     * @returns Formatted group label
+     */
     const formatGroupLabel = (group: GroupOptions): ReactElement => {
 
         return(
@@ -26,6 +52,11 @@ export default function Filters(): ReactElement {
         );
     }
 
+    /**
+     * Filter programs based on current options and the action taken
+     * @param options Options filtered by
+     * @param action Action taken (ie, applying or removing a filter)
+     */
     const filterPrograms = (options: MultiValue<Option>, action: ActionMeta<Option>): void => {
 
         // If project containers has not been set
@@ -46,7 +77,10 @@ export default function Filters(): ReactElement {
         getFilters();
     }
 
-    const getFilters = () => {
+    /**
+     * Get the filters from current projects on page
+     */
+    const getFilters = (): void => {
 
         // If project containers has not been set
         if (!projectPreviews.current) {
@@ -164,6 +198,7 @@ export default function Filters(): ReactElement {
         ]);
     }
 
+    // On page load
     useEffect(() => {
 
         // Set project containers
@@ -190,6 +225,7 @@ export default function Filters(): ReactElement {
             closeMenuOnSelect={false}
             blurInputOnSelect={false}
             placeholder='Search/Filter projects...'
+            styles={customStyles}
         />
     );
 }
@@ -214,6 +250,12 @@ type GroupOptions = {
     readonly options: readonly Option[];
 }
 
+/**
+ * Filter the currently visible elements based on options and action taken
+ * @param elements Project elements to filter
+ * @param options Options to filter by
+ * @param action Action taken
+ */
 function filterElements(
     elements: HTMLElement[], options: MultiValue<Option>, action: ActionMeta<Option>
 ): void {
@@ -259,8 +301,12 @@ function filterElements(
     }
 }
 
-function filterElement(
-    element: HTMLElement, options: MultiValue<Option>) {
+/**
+ * Filter a single element based on current options
+ * @param element HTML element to apply the filter to
+ * @param options Options to filter by
+ */
+function filterElement(element: HTMLElement, options: MultiValue<Option>): void {
 
     for (let option of options) {
 
